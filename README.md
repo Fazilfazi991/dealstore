@@ -1,5 +1,7 @@
 # vinext-starter
 
+Dealstore-specific database, catalogue import, COD order, inventory, Stripe, and production setup documentation is in [BACKEND.md](./BACKEND.md).
+
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
 Drizzle support.

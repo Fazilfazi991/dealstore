@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { checkoutRequestSchema } from "@/lib/commerce/validation";
-import { attachStripeSession, createOrder } from "@/lib/commerce/repository.server";
+import { abandonStripeOrder, attachStripeSession, createOrder } from "@/lib/commerce/repository.server";
 import { createStripeCheckout, stripeConfigured } from "@/lib/commerce/stripe.server";
 
 export const runtime="nodejs";
@@ -15,7 +15,7 @@ export async function POST(request:Request){
     const response=NextResponse.json({orderNumber:order.order_number,total:order.total,redirectUrl:null as string|null});
     response.cookies.set("dealstore_order_access",`${order.order_number}.${order.access_token}`,{httpOnly:true,sameSite:"lax",secure:process.env.NODE_ENV==="production",path:"/order-success",maxAge:60*60*24*30});
     if(paymentMethod==="stripe"){
-      const session=await createStripeCheckout(order,checkout,items); await attachStripeSession(order.order_number,session.id,session.payment_intent);
+      let session;try{session=await createStripeCheckout(order,checkout,items)}catch(error){await abandonStripeOrder(order.order_number);throw error}await attachStripeSession(order.order_number,session.id,session.payment_intent);
       return NextResponse.json({orderNumber:order.order_number,total:order.total,redirectUrl:session.url},{headers:{"Set-Cookie":response.headers.get("Set-Cookie")||""}});
     }
     return response;
