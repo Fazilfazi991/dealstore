@@ -14,7 +14,8 @@ create index if not exists orders_number_created_idx on public.orders(order_numb
 create index if not exists orders_stripe_payment_intent_idx on public.orders(stripe_payment_intent_id) where stripe_payment_intent_id is not null;
 create unique index if not exists product_primary_image_idx on public.product_images(product_id) where is_primary;
 
-create or replace view public.public_catalogue with (security_invoker=true) as
+drop view if exists public.public_catalogue;
+create view public.public_catalogue with (security_invoker=true) as
 select p.id,p.external_id,p.slug,p.name,p.short_description,p.description,c.slug category_slug,c.name category,
  p.selling_price,p.currency,p.featured,p.new_arrival,p.best_seller,p.material,p.fit,p.care,p.occasion,p.created_at,
  coalesce((select jsonb_agg(jsonb_build_object('url',i.image_url,'alt',i.alt_text,'position',i.position,'is_primary',i.is_primary) order by i.position) from public.product_images i where i.product_id=p.id),'[]') images,

@@ -13,8 +13,9 @@ export const metadata: Metadata = {
   twitter: { card:"summary_large_image", title:"Dealstore — Women’s Fashion for Every Plan", description:"Modern women’s fashion at accessible prices." },
   other: { "codex-preview": "development" },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: { url: "/brand/dealstore-cart-icon.png", type: "image/png" },
+    shortcut: "/brand/dealstore-cart-icon.png",
+    apple: "/brand/dealstore-cart-icon.png",
   },
 };
 
