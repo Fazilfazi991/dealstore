@@ -1,4 +1,5 @@
-export type Product = { id:string; slug:string; name:string; category:"Kurtis"|"Kurta Sets"|"Dresses"|"Gowns"; collection:string; occasion:string; sellingPrice:number; images:string[]; sizes:string[]; colour:string; material:string; description:string; featured?:boolean; newArrival?:boolean; bestSeller?:boolean };
+export type ProductVariant = { id?:string; sku:string; size:string; colour:string|null; available:boolean; availableQuantity?:number };
+export type Product = { id:string; slug:string; name:string; category:"Kurtis"|"Kurta Sets"|"Dresses"|"Gowns"; collection:string; occasion:string; sellingPrice:number; images:string[]; sizes:string[]; variants?:ProductVariant[]; colour:string; material:string; description:string; featured?:boolean; newArrival?:boolean; bestSeller?:boolean };
 const names=["catalogue-hero","front-model","occasion-lifestyle","three-quarter-view","fabric-detail","product-info-card"];
 const imageSet=(sku:string)=>names.map((name,index)=>`/images/${sku}/0${index+1}-${name}.png`);
 export const products:Product[]=[

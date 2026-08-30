@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function PolicyPage({title,children}:{title:string;children:React.ReactNode}){return <main className="page-shell policy-page"><nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span>{title}</span></nav><article><h1>{title}</h1>{children}<p className="policy-review-note"><strong>Policy notice:</strong> Final operational terms will be published here after business approval. Contact Dealstore before ordering if you need clarification.</p></article></main>}

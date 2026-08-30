@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./policy.css";
 import { CartProvider } from "@/components/store/cart-provider";
 import { Header } from "@/components/store/header";
 import { Footer } from "@/components/store/footer";
