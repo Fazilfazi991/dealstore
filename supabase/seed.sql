@@ -16,11 +16,15 @@ insert into seed_products values
 insert into public.products(external_id,slug,name,category_id,status,source_cost,description,material,featured,new_arrival,best_seller)
 select s.external_id,s.slug,s.name,c.id,'active',s.cost,s.description,s.material,s.featured,s.new_arrival,s.best_seller from seed_products s join public.categories c on c.slug=s.category_slug
 on conflict(external_id) do update set slug=excluded.slug,name=excluded.name,category_id=excluded.category_id,status='active',source_cost=excluded.source_cost,description=excluded.description,material=excluded.material,featured=excluded.featured,new_arrival=excluded.new_arrival,best_seller=excluded.best_seller,updated_at=now();
+update public.products set occasion=case external_id when 'MSH-ETH-001' then 'Daily wear' when 'MSH-ETH-002' then 'Festive wear' when 'MSH-SET-003' then 'Casual outing' when 'MSH-SET-004' then 'Wedding guest' when 'MSH-GWN-005' then 'Evening party' when 'MSH-GWN-006' then 'Brunch' when 'MSH-WES-007' then 'Brunch date' when 'MSH-WES-008' then 'Evening' when 'MSH-WES-009' then 'Casual party' when 'MSH-WES-010' then 'Date night' else occasion end where external_id like 'MSH-%';
 
 insert into public.product_variants(product_id,sku,size,colour)
 select p.id,p.external_id||'-'||size,size,s.colour from seed_products s join public.products p on p.external_id=s.external_id cross join unnest(s.sizes) size
 on conflict(sku) do update set active=true,size=excluded.size,colour=excluded.colour,updated_at=now();
-insert into public.product_images(product_id,image_url,alt_text,position) select p.id,'/images/'||p.external_id||'/01-catalogue-hero.png',p.name||' front view',0 from public.products p on conflict(product_id,position) do update set image_url=excluded.image_url,alt_text=excluded.alt_text;
+insert into public.product_images(product_id,image_url,alt_text,position,is_primary)
+select p.id,'/images/'||p.external_id||'/0'||asset.position||'-'||asset.name||'.png',p.name||case asset.position when 1 then ' catalogue view' else ' view '||asset.position end,asset.position-1,asset.position=1
+from public.products p cross join (values(1,'catalogue-hero'),(2,'front-model'),(3,'occasion-lifestyle'),(4,'three-quarter-view'),(5,'fabric-detail'),(6,'product-info-card')) asset(position,name)
+on conflict(product_id,position) do update set image_url=excluded.image_url,alt_text=excluded.alt_text,is_primary=excluded.is_primary;
 insert into public.inventory(variant_id,stock_on_hand,low_stock_threshold) select id,20,3 from public.product_variants on conflict(variant_id) do nothing;
 insert into public.inventory_movements(variant_id,movement_type,quantity,note) select v.id,'opening',20,'Deterministic development seed' from public.product_variants v where not exists(select 1 from public.inventory_movements m where m.variant_id=v.id and m.movement_type='opening');
 drop table seed_products;

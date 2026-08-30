@@ -13,6 +13,7 @@
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "catalogue:validate": "node scripts/validate-catalogue-import.mjs",
+    "catalogue:import": "node scripts/validate-catalogue-import.mjs --commit",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
   },
   "dependencies": {
