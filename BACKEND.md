@@ -17,3 +17,5 @@ The service-role key, product source costs, order access-token hashes, customer 
 - Fulfilment proceeds independently through `processing`, `packed`, `shipped`, and `delivered`.
 
 `lib/commerce/notifications.server.ts` is the provider-neutral confirmation boundary. It intentionally records a pending delivery until an email/SMS provider is selected.
+
+> TODO (fulfilment): Before production COD fulfilment is connected, verify that the selected fulfilment workflow can collect the final Dealstore selling price shown on the order. Keep supplier identity and supplier-side pricing private.

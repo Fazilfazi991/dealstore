@@ -3,7 +3,8 @@ import type { CheckoutDetails, CheckoutItem, CreatedOrder } from "./types";
 export { verifyStripeSignature } from "./stripe-signature";
 
 export const stripeConfigured=()=>Boolean(process.env.STRIPE_SECRET_KEY&&process.env.STRIPE_WEBHOOK_SECRET);
-export async function createStripeCheckout(order:CreatedOrder,checkout:CheckoutDetails,_items:CheckoutItem[]){
+export async function createStripeCheckout(order:CreatedOrder,checkout:CheckoutDetails,items:CheckoutItem[]){
+  void items;
   const secret=process.env.STRIPE_SECRET_KEY; if(!secret)throw new Error("STRIPE_NOT_CONFIGURED");
   const origin=process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/,""); if(!origin)throw new Error("SITE_URL_NOT_CONFIGURED");
   const form=new URLSearchParams({mode:"payment",success_url:`${origin}/order-success?order=${encodeURIComponent(order.order_number)}`,cancel_url:`${origin}/checkout?payment=cancelled`,"metadata[order_number]":order.order_number,"customer_email":checkout.email||""});
