@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN">
+    <html lang="en-IN" data-scroll-behavior="smooth">
       <body><CartProvider><Header />{children}<Footer /></CartProvider></body>
     </html>
   );
