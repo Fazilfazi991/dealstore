@@ -34,7 +34,7 @@ export async function createOrder(checkout:CheckoutDetails,items:CheckoutItem[],
     const product=products.find(candidate=>candidate.sizes.some(size=>variantSku(candidate.id,size)===item.sku));
     const size=product?.sizes.find(value=>variantSku(product.id,value)===item.sku);
     if(!product||!size)throw new Error("VARIANT_UNAVAILABLE");
-    const unitPrice=sellingPriceFor(product.id); total+=unitPrice*item.quantity;
+    const unitPrice=sellingPriceFor(item.sku); total+=unitPrice*item.quantity;
     snapshots.push({product_name:product.name,sku:item.sku,size,colour:product.colour,unit_price:unitPrice,quantity:item.quantity,line_total:unitPrice*item.quantity,image_url:product.images[0]});
   }
   const token=randomBytes(24).toString("hex"); const order_number=`DS-${new Date().toISOString().slice(0,10).replaceAll("-","")}-${randomBytes(3).toString("hex").toUpperCase()}`;
