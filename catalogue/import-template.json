@@ -1,0 +1,3 @@
+[
+  {"externalId":"MSH-NEW-011","name":"Example Product","slug":"example-product","category":"kurtis","sourceCost":500,"description":"Replace with a customer-facing description.","material":"Cotton","colour":"Blue","sizes":["S","M","L"],"stock":20,"images":[{"url":"https://example.com/product.jpg","alt":"Example Product front view"}]}
+]
