@@ -1,0 +1,1 @@
+import Link from"next/link";export default function NotFound(){return <main className="page-shell empty-state"><p className="error-code">404</p><h1>We couldn’t find that style</h1><p>It may have moved or is no longer available.</p><Link href="/shop" className="button primary">Browse all styles</Link></main>}

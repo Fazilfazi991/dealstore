@@ -1,0 +1,1 @@
+import type{Metadata}from"next";import{OrderSuccess}from"@/components/store/order-success";export const metadata:Metadata={title:"Order confirmed",robots:{index:false,follow:false}};export default async function Page({searchParams}:{searchParams:Promise<{order?:string}>}){const{order}=await searchParams;return <OrderSuccess order={order||"Pending"}/>}
