@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 13 source search logged
+
+- Compared MSH-EXP-013's stored dark green/navy shirt-collar checked maxi dress with three Meesho candidates.
+- Chrome confirmed the closest navy checked candidate is out of stock and exposes no live source imagery; its indexed crepe/navy attributes also conflict. Rejected a plus-size navy round-neck kurti and a sleeveless light-green gingham dress on explicit identity differences.
+- Product 13 remains `Needs Verification`; no source URL or commercial field was promoted.
+
 ## 2026-08-31 — Product 12 source search logged
 
 - Compared MSH-EXP-012's stored floor-length maroon/rust botanical gown against the verified MSH-EXP-017 source and three additional Meesho candidates.
