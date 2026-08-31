@@ -42,11 +42,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source gallery match confirmed; six-image cross-view QA passed and information card corrected",
-      "websiteStatus": "Local size-wise pricing updated; deployment and live cart/COD QA pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, size-M cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "The source gallery shows the exact square-neck sleeveless peach motif kurta and plain white palazzos preserved in the canonical images. Meesho's text metadata inconsistently labels the neck round and includes stray dupatta fields; the product images and Set Type confirm a two-piece kurta-with-bottomwear set. Retail is the live ₹275 source price plus ₹200. Only S–XXL are published because those sizes appear in the source measurement guide; XXS, XS, XXXL, 4XL, 5XL and the mixed Top-M/Bottom-L selector remain withheld. The information card now says ₹475, Sizes S–XXL and FREE delivery."
+      "notesAndRisks": "The source gallery shows the exact square-neck sleeveless peach motif kurta and plain white palazzos preserved in the canonical images. Meesho's text metadata inconsistently labels the neck round and includes stray dupatta fields; the product images and Set Type confirm a two-piece kurta-with-bottomwear set. Retail is the live ₹275 source price plus ₹200. Only S–XXL are published because those sizes appear in the source measurement guide; XXS, XS, XXXL, 4XL, 5XL and the mixed Top-M/Bottom-L selector remain withheld. Production QA verified size M at ₹475 through cart and selected COD checkout with FREE delivery; all six public images returned HTTP 200. The information card says ₹475, Sizes S–XXL and FREE delivery; the local Meta feed is ready but not uploaded."
     },
     {
       "sku": "MSH-ETH-002",
