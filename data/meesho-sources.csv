@@ -1,6 +1,6 @@
 sku,source_url,verification_date,last_checked,status,required_action
 MSH-ETH-001,https://www.meesho.com/women-cotton-printed-round-neck-straight-kurti-black-straight-kurta-for-women-kurti-for-women-single-kurti-for-women-kurta-for-jeans-women-kurta-kurta-under-299-kurti-daily-wear-kurta-ajrakh-print-kurti/p/89ulhd,2026-08-31,2026-08-31,Active,Monitor daily; live size-wise pricing verified
-MSH-ETH-002,,,,Needs review,Find and verify exact source listing
+MSH-ETH-002,https://www.meesho.com/straight-embroidered-kurta-for-women-and-girls/p/7tw01f,2026-08-31,2026-08-31,Active,Exact source image matched; monitor daily; Meta blocked pending deployment and live QA
 MSH-SET-003,,,,Needs review,Find and verify exact source listing
 MSH-SET-004,https://www.meesho.com/women-printed-rayon-aliya-cut-kurtipant-and-dupatta-set/p/7iks6o,2026-08-31,2026-08-31,Active,Monitor daily; deploy and live-verify corrected size-wise pricing
 MSH-GWN-005,,,,Needs review,Find and verify exact source listing

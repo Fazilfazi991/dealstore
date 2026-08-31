@@ -7,15 +7,15 @@ Audit commit: `f59492b47b3b97f77e19978e227ef1051689296b`
 ## What exists
 
 - A working Next.js/Vinext storefront with product listing, product detail, cart, COD checkout, Stripe checkout scaffolding, free-shipping logic, and Supabase commerce migrations.
-- Fourteen sellable original catalogue products plus ten approved, source-verified additions (Products 16–25) after the Product 15 safety correction. Products 1, 4, and 7 now have exact source backfills; the remaining eleven original sellable records require verification. Products 21–25 are deployed, production-QA verified, and Meta-feed ready.
+- Fourteen sellable original catalogue products plus ten approved, source-verified additions (Products 16–25) after the Product 15 safety correction. Products 1, 2, 4, and 7 now have exact source backfills; the remaining ten original sellable records require verification. Products 21–25 are deployed, production-QA verified, and Meta-feed ready.
 - Six separate local image assets for MSH-EXP-011 through MSH-EXP-015. The old combined catalogue boards are no longer referenced.
 - A Supabase schema whose public catalogue exposes only products with `status='active'`.
 - Asset and commerce tests, plus the new `npm run meesho:validate` commercial-data gate.
 
 ## Verification status
 
-- Products 1, 4, and 7 now have exact live Meesho source matches and complete commercial evidence. Product 1's corrected S–6XL flow is live and Meta-ready. Products 4 and 7 have corrected pricing, information cards, product pages, size-selected carts, and COD checkout locally verified; deployment and production QA remain pending.
-- Products 2–3, 5–6, and 8–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Candidate searches through Product 14 are preserved in `data/source-research.csv`; rejected candidates were not promoted. Under the new policy these records still require exact-source backfill.
+- Products 1, 2, 4, and 7 now have exact live Meesho source matches and complete commercial evidence. Product 1's corrected S–6XL flow is live and Meta-ready. Product 2 is corrected locally to exact XXS, S–XXXL and 4XL pricing at ₹377–₹461 with a FREE-delivery information card; live cart/COD QA remains pending. Products 4 and 7 have corrected pricing, information cards, product pages, size-selected carts, and COD checkout locally verified; deployment and production QA remain pending.
+- Products 3, 5–6, and 8–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Candidate searches through Product 14 are preserved in `data/source-research.csv`; rejected candidates were not promoted. Under the new policy these records still require exact-source backfill.
 - MSH-EXP-015 is confirmed by the supplied imagery and owner instruction as **Maroon Rayon Co-ord Set** (maroon kurta and wide-leg pants), not an Anarkali gown.
 - MSH-EXP-015 has no verified source URL, size-wise source price, sizes, seller, stock, rating, returns, or availability. It is therefore a draft and is excluded from the storefront.
 - A focused 2026-08-31 Meesho search found several maroon rayon kurta/pant listings, but none matched the supplied garment across silhouette, wide-leg bottom, V-neck treatment, sleeve details, included pieces, and colour. No candidate was accepted or copied into the canonical record.
@@ -57,7 +57,7 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 
 1. Find Product 15’s exact source listing and verify it against all six supplied images.
 2. Keep Products 21–25 under daily source monitoring; their production and Meta-readiness gates are complete, but the feed has not been uploaded.
-3. Continue exact-source backfill for Products 2–3, 5–6, and 8–15; Products 1, 4, and 7 are verified.
+3. Deploy and live-QA Product 2, then continue exact-source backfill for Products 3, 5–6, and 8–15; Products 1, 2, 4, and 7 are verified.
 4. Review and apply the approved Product 1 and Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.
 6. Apply the Supabase correction only after reviewing the migration against the linked project and current Supabase guidance.

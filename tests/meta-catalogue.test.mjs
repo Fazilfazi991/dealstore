@@ -18,6 +18,10 @@ test("Meta dry-run admits live feed-ready variants and blocks only unreleased pr
   assert.equal(report.eligibleRows, 64);
   assert.deepEqual(report.blockedProducts, [
     {
+      sku: "MSH-ETH-002",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
       sku: "MSH-SET-004",
       reasons: ["website URL is not marked live", "Meta status is not Ready"],
     },

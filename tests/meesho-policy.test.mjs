@@ -78,3 +78,12 @@ test("verified Product 1 migration uses exact variants and never invents invento
   assert.match(migration, /select v\.id,0,3/);
   assert.doesNotMatch(migration, /\('XS',/);
 });
+
+test("verified Product 2 migration uses exact variants and never invents inventory", async () => {
+  const migration = await readFile(new URL("../supabase/migrations/20260831183000_sync_verified_product_2.sql", import.meta.url), "utf8");
+  assert.match(migration, /\('XXS',177\),\('S',242\),\('M',215\),\('L',261\)/);
+  assert.match(migration, /v\.source_cost\+200/);
+  assert.match(migration, /select v\.id,0,3/);
+  assert.doesNotMatch(migration, /\('XS',/);
+  assert.doesNotMatch(migration, /\('3XL',/);
+});
