@@ -109,11 +109,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source match confirmed; six-image cross-view QA passed and info card corrected",
-      "websiteStatus": "Local product page, size M cart and COD checkout verified; deployment and live QA pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, size-M cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Source image matches the purple floral motif, embellished neckline, empire seam, three-quarter sleeves, cuff-striped pants and sheer purple dupatta. Unsupported XS, 4XL and 5XL were removed. Live page metadata reports print type Solid despite the visibly printed garment, so the canonical pattern retains only the source-supported Printed value. Retail prices are source cost plus ₹200; shipping remains free. Local size M product selection, bag total and COD checkout were verified at ₹674 with free delivery."
+      "notesAndRisks": "Source image matches the purple floral motif, embellished neckline, empire seam, three-quarter sleeves, cuff-striped pants and sheer purple dupatta. Unsupported XS, 4XL and 5XL were removed. Live page metadata reports print type Solid despite the visibly printed garment, so the canonical pattern retains only the source-supported Printed value. Retail prices are source cost plus ₹200; shipping remains free. Production QA verified size M at ₹674 through cart and selected COD checkout; all six public images returned HTTP 200 and the local Meta feed is ready but not uploaded."
     },
     {
       "sku": "MSH-EXP-015",
@@ -174,11 +174,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source match confirmed; six-image cross-view QA passed and info card corrected",
-      "websiteStatus": "Local product page, size M cart and COD checkout verified; deployment and live QA pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, size-M cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Direct source-image comparison matches the pink floral print, square neckline, shirred bodice, short puff sleeves, fit-and-flare silhouette and three-tier ruffled skirt. Unsupported legacy XS was removed. Current source price is ₹476 for S–XXL; retail is ₹676 for every supported size with free delivery. Local size M product selection, bag total and COD checkout were verified at ₹676 with free delivery. Meta remains blocked until deployment and live verification."
+      "notesAndRisks": "Direct source-image comparison matches the pink floral print, square neckline, shirred bodice, short puff sleeves, fit-and-flare silhouette and three-tier ruffled skirt. Unsupported legacy XS was removed. Current source price is ₹476 for S–XXL; retail is ₹676 for every supported size with free delivery. Production QA verified size M at ₹676 through cart and selected COD checkout; all six public images returned HTTP 200 and the local Meta feed is ready but not uploaded."
     },
     {
       "sku": "MSH-EXP-016",
