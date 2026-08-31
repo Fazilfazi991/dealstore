@@ -270,11 +270,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source gallery match confirmed; six-image cross-view QA passed and information card corrected",
-      "websiteStatus": "Local PDP, size-M cart, free delivery and COD checkout verified 2026-08-31; production sync pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, size-M cart, free delivery and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "The current Meesho primary, front, rear and alternate source images match the canonical lemon-yellow colour, wide straps, square neckline, side-waist ruching, close bodycon silhouette and asymmetric wrap-front slit. The live listing exposes XS–XL at a flat ₹437, so every retail variant is ₹637 with free delivery. Local QA verified size M at ₹637 through cart and selected COD checkout with free delivery. Production and Meta readiness remain blocked until deployment and live QA pass."
+      "notesAndRisks": "The current Meesho primary, front, rear and alternate source images match the canonical lemon-yellow colour, wide straps, square neckline, side-waist ruching, close bodycon silhouette and asymmetric wrap-front slit. The live listing exposes XS–XL at a flat ₹437, so every retail variant is ₹637 with free delivery. Production QA verified size M at ₹637 through cart, FREE delivery and selected COD checkout. The local Meta feed is ready but has not been uploaded."
     },
     {
       "sku": "MSH-EXP-016",
