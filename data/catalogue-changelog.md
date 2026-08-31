@@ -7,6 +7,7 @@
 - Removed unsupported XS and recalculated retail prices as source + ₹200: S ₹469, M ₹478, L ₹487, and XL–6XL ₹502. Shipping remains free.
 - Replaced the stale product-info card that claimed ₹494 and ₹50 shipping with a verified `From ₹469` / `FREE Delivery` card. All six images passed source-match and cross-view QA.
 - Promoted Product 1 to `Approved`; its Meta row remains blocked until the corrected storefront deployment is live-verified.
+- Verified the deployed Product 1 page at `dealstore-five.vercel.app`: S–6XL rendered with the exact size-wise prices, size L added to the bag at ₹487, delivery remained FREE, and COD checkout retained the correct ₹487 line item. Product 1 is now Meta `Ready`.
 
 ## 2026-08-31 — Product 15 source search expanded
 

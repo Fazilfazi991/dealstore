@@ -6,7 +6,7 @@ import test from "node:test";
 
 const execFileAsync = promisify(execFile);
 
-test("Meta dry-run admits only live feed-ready variants and reports deployment-blocked approvals", async () => {
+test("Meta dry-run admits all live feed-ready variants", async () => {
   const { stdout } = await execFileAsync(process.execPath, [
     "scripts/generate-meta-catalogue.mjs",
     "--base-url=https://dealstore-five.vercel.app",
@@ -15,18 +15,15 @@ test("Meta dry-run admits only live feed-ready variants and reports deployment-b
     env: { ...process.env, MEESHO_VALIDATION_DATE: "2026-08-31" },
   });
   const report = JSON.parse(stdout);
-  assert.equal(report.eligibleRows, 28);
-  assert.deepEqual(report.blockedProducts, [{
-    sku: "MSH-ETH-001",
-    reasons: ["website URL is not marked live", "Meta status is not Ready"],
-  }]);
+  assert.equal(report.eligibleRows, 37);
+  assert.deepEqual(report.blockedProducts, []);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {
   const csv = await readFile(new URL("../data/meta-catalogue.csv", import.meta.url), "utf8");
   const [header, ...rows] = csv.trim().split(/\r?\n/);
-  assert.equal(rows.length, 28);
-  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 28);
+  assert.equal(rows.length, 37);
+  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 37);
   assert.match(header, /item_group_id/);
   assert.doesNotMatch(header, /source.cost|profit/i);
   for (const row of rows) {

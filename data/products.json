@@ -46,11 +46,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source match confirmed; six-image cross-view QA passed",
-      "websiteStatus": "Local update ready; deployment verification pending",
-      "metaFeedStatus": "Blocked pending live price verification",
+      "websiteStatus": "Live; product page, size pricing, cart, COD checkout and six public images verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Exact source image matches the yoke, medallion, trim, four tassels, motif repeat, sleeves and silhouette. Unsupported XS was removed. Source price varies by size and is monitored daily."
+      "notesAndRisks": "Exact source image matches the yoke, medallion, trim, four tassels, motif repeat, sleeves and silhouette. Unsupported XS was removed. Source price varies by size and is monitored daily. Live size L cart and COD checkout were verified at ₹487 with free delivery."
     },
     {
       "sku": "MSH-EXP-015",

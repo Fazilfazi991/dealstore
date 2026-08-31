@@ -14,7 +14,7 @@ Audit commit: `17500c5e067560d16a205f513c6e99b7faa5d503`
 
 ## Verification status
 
-- Product 1 now has an exact live Meesho source match, complete commercial evidence, corrected S–6XL size-wise pricing, and passed six-image QA. Its corrected storefront deployment still requires live verification before Meta readiness.
+- Product 1 now has an exact live Meesho source match, complete commercial evidence, corrected S–6XL size-wise pricing, passed six-image QA, and a live-verified product/cart/COD checkout flow. Its nine size variants are Meta-ready.
 - Products 2–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Under the new policy they require verification backfill; this audit does not retroactively claim they are verified.
 - MSH-EXP-015 is confirmed by the supplied imagery and owner instruction as **Maroon Rayon Co-ord Set** (maroon kurta and wide-leg pants), not an Anarkali gown.
 - MSH-EXP-015 has no verified source URL, size-wise source price, sizes, seller, stock, rating, returns, or availability. It is therefore a draft and is excluded from the storefront.
@@ -52,10 +52,9 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 
 ## Next actions
 
-1. Deploy and live-verify Product 1's corrected S–6XL price variants, then mark its Meta rows ready.
-2. Find Product 15’s exact source listing and verify it against all six supplied images.
-3. Continue source-verification backfill for Products 2–14.
-4. Review and apply the approved Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
+1. Find Product 15’s exact source listing and verify it against all six supplied images.
+2. Continue source-verification backfill for Products 2–14.
+3. Review and apply the approved Product 1 and Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 3. Backfill source records for Products 1–14 and downgrade any record that cannot be verified.
 4. Produce six individual source-faithful images only for approved products.
 5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.
