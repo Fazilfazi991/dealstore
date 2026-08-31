@@ -605,6 +605,45 @@
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
       "notesAndRisks": "Current listing and primary image confirm the solid black Anarkali and floral black dupatta. Six separate crop-safe 4:5 images passed source-match and cross-view QA while keeping the gown unembellished and the floral treatment confined to the dupatta. XS has a source-listed 42 in length while S–XXL list 48 in. Production PDP, category placement, six-image gallery, cart and COD checkout passed live QA; Meta feed generation is ready but no upload has been performed."
+    },
+    {
+      "sku": "MSH-EXP-026",
+      "productName": "Black & Beige Diamond-Print Rayon Kurta Pant Set",
+      "slug": "black-beige-diamond-print-rayon-kurta-pant-set",
+      "category": "Everyday Sets",
+      "occasion": "Office / everyday",
+      "description": "A black rayon kurta and straight-pant set with beige abstract diamond motifs, three-quarter sleeves and a short button placket.",
+      "meeshoSourceUrl": "https://www.meesho.com/co-ord-set-for-womens-rayon/p/7qriy6",
+      "sourceCostBySize": {
+        "S": 416,
+        "M": 416
+      },
+      "retailPriceBySize": {
+        "S": 616,
+        "M": 616
+      },
+      "profitValue": 200,
+      "shippingStatus": "Free",
+      "fabric": "Rayon",
+      "colour": "Black with beige print",
+      "sleeveType": "Three-quarter sleeves; regular styling",
+      "pattern": "Printed abstract diamond motifs",
+      "length": "Kurta 46 in; pants 38 in",
+      "includedPieces": ["kurta", "pants"],
+      "availableSizes": ["S", "M"],
+      "stockStatus": "Active at last check",
+      "sellerName": "P S FASHION STORE",
+      "rating": 3.7,
+      "reviewCount": 19,
+      "returnEligibility": "7-day returns",
+      "sourceVerificationDate": "2026-08-31",
+      "lastCheckedDate": "2026-08-31",
+      "imageStatus": "Source identity verified; six clean individual images pending",
+      "websiteStatus": "Draft; excluded from storefront",
+      "metaFeedStatus": "Blocked",
+      "approvalStatus": "Needs Verification",
+      "sourceDataStatus": "Verified",
+      "notesAndRisks": "Live source verified at ₹416 for the active selector group. Only S and M are retained because they have source-published measurements; L–XXXL remain withheld until measurements are verified. Source photos confirm the black-and-beige diamond-print kurta, button placket and matching pants, but contain a supplier watermark and must not be published. Approval requires six separate watermark-free images that preserve the exact garment identity and pass source-match QA."
     }
   ]
 }

@@ -1,6 +1,7 @@
 sku,check_timestamp,size,previous_source_cost,current_source_cost,previous_retail_price,current_retail_price,change_type,severity,required_action,source_url
 MSH-EXP-016,2026-08-30T00:00:00+04:00,XS,,480,,680,Baseline,Info,Monitor daily,https://www.meesho.com/trendy-multicolor-sleeveless-maxi-dress-for-women-stylish-rayon-long-dress-for-casual-party-wear-multy-gown-under-500/p/f27vd6
 MSH-EXP-016,2026-08-30T00:00:00+04:00,S-XXXL,,490,,690,Baseline,Info,Monitor daily,https://www.meesho.com/trendy-multicolor-sleeveless-maxi-dress-for-women-stylish-rayon-long-dress-for-casual-party-wear-multy-gown-under-500/p/f27vd6
+MSH-EXP-026,2026-08-31T23:55:00+04:00,S-M,,416,,616,Baseline,Info,Monitor daily; keep unmeasured L-XXXL withheld,https://www.meesho.com/co-ord-set-for-womens-rayon/p/7qriy6
 MSH-EXP-017,2026-08-30T00:00:00+04:00,M,,368,,568,Baseline,Info,Monitor daily,https://www.meesho.com/fancy-printed-round-neck-maxi-gown-with-dupatta-for-women-dress-under-500-gown-under-500/p/f9vl3t
 MSH-EXP-017,2026-08-30T00:00:00+04:00,S/L/XL/XXL,,388,,588,Baseline,Info,Monitor daily,https://www.meesho.com/fancy-printed-round-neck-maxi-gown-with-dupatta-for-women-dress-under-500-gown-under-500/p/f9vl3t
 MSH-EXP-018,2026-08-30T00:00:00+04:00,XXS,,193,,393,Baseline,Info,Withhold until measurements exist,https://www.meesho.com/womens-trendy-printed-cotton-blend-straight-co-ord-set-pista/p/88i66i

@@ -1,6 +1,7 @@
 sku,check_timestamp,size,previous_status,current_status,change_type,severity,required_action,source_url
 MSH-EXP-016,2026-08-30T00:00:00+04:00,ALL,,Active,Baseline,Info,Monitor daily,https://www.meesho.com/trendy-multicolor-sleeveless-maxi-dress-for-women-stylish-rayon-long-dress-for-casual-party-wear-multy-gown-under-500/p/f27vd6
 MSH-EXP-017,2026-08-30T00:00:00+04:00,ALL,,Active,Baseline,Info,Monitor daily,https://www.meesho.com/fancy-printed-round-neck-maxi-gown-with-dupatta-for-women-dress-under-500-gown-under-500/p/f9vl3t
+MSH-EXP-026,2026-08-31T23:55:00+04:00,S-M,,Active,Baseline,Info,Monitor daily; keep Instagram post live if availability changes and edit caption instead of deleting,https://www.meesho.com/co-ord-set-for-womens-rayon/p/7qriy6
 MSH-EXP-018,2026-08-30T00:00:00+04:00,S-XXL,,Active,Baseline,Info,Keep XXS withheld; monitor S-XXL daily,https://www.meesho.com/womens-trendy-printed-cotton-blend-straight-co-ord-set-pista/p/88i66i
 MSH-EXP-019,2026-08-30T00:00:00+04:00,ALL,,Active,Baseline,Info,Monitor daily,https://www.meesho.com/red-cotton-kurti-set-for-women-sleeveless-kurta-pant-set-party-wear-kurta-set-for-women-kurti-set-under-500-2-piece-kurti-set-kurta-palazzo-set-stylish-kurti-set-for-women-cotton-ethnic-dress-for-women/p/f3bvtr
 MSH-EXP-020,2026-08-30T00:00:00+04:00,ALL,,Active,Baseline,Info,Monitor daily,https://www.meesho.com/georgette-sttiched-anarkali-gown-and-dupatta-white/p/8jonju
