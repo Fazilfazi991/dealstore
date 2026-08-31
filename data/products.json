@@ -43,11 +43,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source image match confirmed; six-image cross-view QA passed and information card corrected",
-      "websiteStatus": "Local size-wise product pricing updated; deployment and live cart/COD QA pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, size-M selection, cart pricing, six public images and free delivery verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "The live source primary image matches the preserved model, blue-teal sheen, white geometric U-shaped yoke, notched round neckline, clean body, three-quarter sleeves and A-line silhouette. Unsupported XS was removed; source-listed XXXL is normalized from the storefront's former 3XL label. Retail prices are exact source cost plus ₹200. The information card now says From ₹377 and FREE delivery."
+      "notesAndRisks": "The live source primary image matches the preserved model, blue-teal sheen, white geometric U-shaped yoke, notched round neckline, clean body, three-quarter sleeves and A-line silhouette. Unsupported XS was removed; source-listed XXXL is normalized from the storefront's former 3XL label. Retail prices are exact source cost plus ₹200. Production QA verified size M at ₹415 through selection and cart with FREE delivery and no client errors. The information card says From ₹377 and FREE delivery; the local Meta feed is ready but has not been uploaded."
     },
     {
       "sku": "MSH-ETH-001",
