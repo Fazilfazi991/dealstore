@@ -1,5 +1,13 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 8 exact source verified
+
+- Matched MSH-WES-008 to the current Meesho listing `/p/71w5ym`. Source-image comparison confirmed the black cotton-blend fabric with tiny white florals, slim straps, off-shoulder gathered neckline, short puff sleeves, smocked waist and full maxi flare.
+- Captured seller `DULHAN SAREE`, 4.2 product rating, 11,114 reviews, 7-day returns and active S–XXL availability. Source prices are ₹279 for M and ₹289 for S/L/XL/XXL; retail prices are ₹479 and ₹489 respectively under the source-plus-₹200 rule.
+- Replaced the stale information card that showed ₹479 as a single price and ₹50 shipping with `From ₹479` and `FREE Delivery`.
+- Local browser QA passed: M displayed ₹479, S displayed and added at ₹489, the cart total remained ₹489 with FREE delivery, and COD was selected at checkout. A 390px check showed no page-level horizontal overflow and zero broken images.
+- Product 8 is marked `Approved`; production and Meta readiness remain blocked until staged database deployment and live verification pass.
+
 ## 2026-08-31 — Product 10 source search logged
 
 - Reconfirmed MSH-WES-010 from its canonical image set as a solid lemon-yellow sleeveless bodycon midi/maxi dress with wide straps, a clean square neckline, side-waist ruching, and an asymmetric front wrap slit.
