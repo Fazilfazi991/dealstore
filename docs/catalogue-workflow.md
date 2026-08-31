@@ -17,6 +17,8 @@ Exceptions use `Price changed`, `Stock changed`, `Temporarily unavailable`, `Sou
 7. Run `npm run meesho:validate`, lint, TypeScript, tests, build, and browser QA.
 8. Sync the approved record to the website and Supabase, then generate its Meta row.
 
+`meesho:validate` enforces the approved-record evidence contract, including the exact Meesho product URL, garment attributes, seller, rating and reviews, returns, stock status, dated checks, free shipping, and a positive verified source cost plus exactly ₹200 for every sellable size. Missing evidence is a hard failure for an approved product; use `Needs Verification` instead of placeholders or guesses.
+
 Before any Supabase catalogue synchronization, run `npm run supabase:validate`. It compares the staged migration with canonical approved products, exact size-wise source costs, the six-image contract, draft status, zero initial inventory, and the Product 15 quarantine rules. A passing result validates the migration file; it does not authorize applying it to production.
 
 ## Meta feed gate

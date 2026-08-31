@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Approved-record evidence gate hardened
+
+- Required every approved record to carry the complete commercial evidence contract: exact HTTPS Meesho URL, garment attributes, seller, rating/reviews, returns, stock, dated verification, free shipping, source status, and positive size-wise source-plus-₹200 pricing for every sellable size.
+- Rechecked the exact live listings for MSH-EXP-017 and MSH-EXP-018 after the stronger gate exposed missing fields. Recorded Product 17's source-listed `Regular` sleeve styling and Product 18's size-dependent top/palazzo lengths (20–24 in / 36–38 in); no value was inferred from imagery.
+- Added a regression test proving an approved record fails when seller, returns, or an available size's source cost is missing.
+
 ## 2026-08-31
 
 - Completed the daily source check for Products 16–20; all five source pages remained active.

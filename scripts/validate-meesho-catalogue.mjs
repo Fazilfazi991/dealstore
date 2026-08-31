@@ -2,7 +2,10 @@ import { readFile, access } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const data = JSON.parse(await readFile(new URL("../data/products.json", import.meta.url), "utf8"));
+const productsFile = process.env.MEESHO_PRODUCTS_FILE
+  ? new URL(`file:///${process.env.MEESHO_PRODUCTS_FILE.replaceAll("\\", "/")}`)
+  : new URL("../data/products.json", import.meta.url);
+const data = JSON.parse(await readFile(productsFile, "utf8"));
 const trackedProducts = [...(data.legacyRecords || []), ...data.records];
 const errors = [];
 const warnings = [];
@@ -10,6 +13,12 @@ const seen = new Set();
 const requiredImages = ["01-catalogue-hero.png","02-front-model.png","03-occasion-lifestyle.png","04-three-quarter-view.png","05-fabric-detail.png","06-product-info-card.png"];
 const validationDate = process.env.MEESHO_VALIDATION_DATE || new Date().toISOString().slice(0, 10);
 const staleAfterDays = Number.parseInt(process.env.MEESHO_STALE_AFTER_DAYS || "1", 10);
+const approvedRequiredFields = [
+  "slug", "category", "occasion", "fabric", "colour", "sleeveType", "pattern",
+  "length", "includedPieces", "stockStatus", "sellerName", "rating", "reviewCount",
+  "returnEligibility", "sourceVerificationDate", "lastCheckedDate", "imageStatus",
+  "websiteStatus", "metaFeedStatus", "sourceDataStatus",
+];
 
 function ageInDays(date) {
   const checked = Date.parse(`${date}T00:00:00Z`);
@@ -31,6 +40,21 @@ for (const product of trackedProducts) {
     if (product.retailPriceBySize?.[size] !== cost + data.profitInr) errors.push(`${product.sku}/${size}: retail price must equal source + ₹${data.profitInr}`);
   }
   if (product.approvalStatus === "Approved") {
+    for (const field of approvedRequiredFields) {
+      if (product[field] === undefined || product[field] === null || product[field] === "") errors.push(`${product.sku}: approved record missing ${field}`);
+    }
+    if (!/^https:\/\/(?:www\.)?meesho\.com\/.+\/p\/[a-z0-9]+\/?$/i.test(product.meeshoSourceUrl || "")) errors.push(`${product.sku}: approved record requires an exact HTTPS Meesho product URL`);
+    if (product.profitValue !== data.profitInr) errors.push(`${product.sku}: profit value must equal ₹${data.profitInr}`);
+    if (product.shippingStatus !== "Free") errors.push(`${product.sku}: shipping must remain free`);
+    if (product.sourceDataStatus !== "Verified") errors.push(`${product.sku}: approved source data must be Verified`);
+    if (!Number.isFinite(product.rating) || product.rating < 0 || product.rating > 5) errors.push(`${product.sku}: invalid rating`);
+    if (!Number.isInteger(product.reviewCount) || product.reviewCount < 0) errors.push(`${product.sku}: invalid review count`);
+    for (const size of product.availableSizes) {
+      const sourceCost = product.sourceCostBySize?.[size];
+      const retailPrice = product.retailPriceBySize?.[size];
+      if (!Number.isInteger(sourceCost) || sourceCost <= 0) errors.push(`${product.sku}/${size}: missing positive verified source cost`);
+      if (retailPrice !== sourceCost + data.profitInr) errors.push(`${product.sku}/${size}: available retail price must equal source + ₹${data.profitInr}`);
+    }
     if (!product.sourceVerificationDate || !product.lastCheckedDate) errors.push(`${product.sku}: approved record is unverified or stale`);
     if (product.lastCheckedDate) {
       const checkedAge = ageInDays(product.lastCheckedDate);
