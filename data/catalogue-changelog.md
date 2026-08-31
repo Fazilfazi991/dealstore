@@ -1,5 +1,19 @@
 # Catalogue changelog
 
+## 2026-08-31
+
+- Completed the daily source check for Products 16–20; all five source pages remained active.
+- Recorded review-count changes for MSH-EXP-017 (39 to 40) and MSH-EXP-020 (1192 to 1195); no commercial catalogue action was required.
+- Ran the weekly `meesho:validate` catalogue integrity gate: 20 tracked records, 19 sellable website products, no hard validation errors.
+- Hardened `meesho:validate` to report invalid, future-dated, and stale monitoring dates. The default stale threshold is one day and can be configured with `MEESHO_STALE_AFTER_DAYS`; deterministic audits can set `MEESHO_VALIDATION_DATE`.
+- Re-searched Meesho for the exact MSH-EXP-015 garment. Similar maroon rayon kurta/pant listings were rejected because they conflicted with the supplied co-ord on silhouette, bottom shape, neckline/sleeve treatment, or included pieces. Product 15 remains `Needs Verification`, draft, and excluded.
+- Verified the live production pages for Products 16–20 and all thirty public image URLs. Page titles and retail prices matched the canonical catalogue; every checked endpoint returned HTTP 200.
+- Marked Products 16–20 `Live` and Meta `Ready`, then generated a local 28-row size-variant feed. No feed upload or Meta mutation was performed.
+- Hardened the Meta generator to reject stale/future source checks, invalid Meesho URLs, missing free-shipping evidence, missing sizes, and source-plus-₹200 price violations. Added focused feed tests.
+- Completed a read-only production Supabase audit in the authenticated dashboard. Products 16–20 are absent; Product 15 is draft with zero active variants and zero images but retains the obsolete ₹588 source cost.
+- Verified RLS/grants, `security_invoker` catalogue projection, privileged function grants, and Security Advisor (zero errors, zero warnings).
+- Corrected the unapplied staging migration to clear Product 15's source cost to zero and added `supabase:validate`, which reconciles five approved products, 28 size variants, six image names, draft status, and zero initial inventory against canonical data.
+
 ## 2026-08-30
 
 - Corrected MSH-EXP-015 identity to **Maroon Rayon Co-ord Set**.

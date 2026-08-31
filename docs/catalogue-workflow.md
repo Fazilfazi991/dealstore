@@ -17,11 +17,15 @@ Exceptions use `Price changed`, `Stock changed`, `Temporarily unavailable`, `Sou
 7. Run `npm run meesho:validate`, lint, TypeScript, tests, build, and browser QA.
 8. Sync the approved record to the website and Supabase, then generate its Meta row.
 
+Before any Supabase catalogue synchronization, run `npm run supabase:validate`. It compares the staged migration with canonical approved products, exact size-wise source costs, the six-image contract, draft status, zero initial inventory, and the Product 15 quarantine rules. A passing result validates the migration file; it does not authorize applying it to production.
+
 ## Meta feed gate
 
-`data/meta-catalogue.csv` intentionally contains only its header until a product has an HTTPS product URL, publicly accessible images, verified source and stock data, confirmed returns information, and `Approved` status. Internal cost and profit fields must never be exported.
+`data/meta-catalogue.csv` contains only products that have an HTTPS product URL, six publicly accessible images, verified and fresh source/stock data, confirmed returns information, exact size-wise source-plus-₹200 pricing, `Approved` status, `Live` website status, and `Ready` Meta status. Internal cost and profit fields must never be exported.
 
 Run `npm run meta:generate -- --base-url=https://your-live-domain.example` for a dry-run gate report. Add `--write` only after each product is marked `Live` and its `metaFeedStatus` is `Ready`. The generator emits one row per size so size-wise retail prices remain exact.
+
+The generator blocks invalid, future-dated, or stale source checks. Freshness defaults to one day and can be configured with `MEESHO_STALE_AFTER_DAYS`; `MEESHO_VALIDATION_DATE` is available for deterministic audits and tests. A generated local feed is not an authorization to upload it to Meta.
 
 ## Monitoring
 

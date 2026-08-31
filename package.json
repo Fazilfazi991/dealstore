@@ -15,6 +15,7 @@
     "catalogue:validate": "node scripts/validate-catalogue-import.mjs",
     "meesho:validate": "node scripts/validate-meesho-catalogue.mjs",
     "meta:generate": "node scripts/generate-meta-catalogue.mjs",
+    "supabase:validate": "node scripts/validate-supabase-catalogue-sync.mjs",
     "catalogue:import": "node scripts/validate-catalogue-import.mjs --commit",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
   },

@@ -1,8 +1,8 @@
 # Dealstore Meesho project state
 
-Last audited: 2026-08-30
+Last audited: 2026-08-31
 Repository branch: `main`
-Starting commit: `6d8bb4b4caee16f364fcd2f479346fccab33833f`
+Audit commit: `17500c5e067560d16a205f513c6e99b7faa5d503`
 
 ## What exists
 
@@ -17,7 +17,12 @@ Starting commit: `6d8bb4b4caee16f364fcd2f479346fccab33833f`
 - Products 1–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Under the new policy they require verification backfill; this audit does not retroactively claim they are verified.
 - MSH-EXP-015 is confirmed by the supplied imagery and owner instruction as **Maroon Rayon Co-ord Set** (maroon kurta and wide-leg pants), not an Anarkali gown.
 - MSH-EXP-015 has no verified source URL, size-wise source price, sizes, seller, stock, rating, returns, or availability. It is therefore a draft and is excluded from the storefront.
-- MSH-EXP-016 through MSH-EXP-020 have live source records, verified commercial data, six individual watermark-free images, passed local cross-view QA, and are prepared in the local storefront.
+- A focused 2026-08-31 Meesho search found several maroon rayon kurta/pant listings, but none matched the supplied garment across silhouette, wide-leg bottom, V-neck treatment, sleeve details, included pieces, and colour. No candidate was accepted or copied into the canonical record.
+- MSH-EXP-016 through MSH-EXP-020 have live source records, verified commercial data, six individual watermark-free images, passed local cross-view QA, and live production product pages.
+- On 2026-08-31, all five production product URLs and all thirty public image URLs returned HTTP 200 with the expected page titles, retail prices, and image content types.
+- The local Meta feed contains 28 unique size variants across Products 16–20. Every row uses HTTPS, free shipping, exact size-wise retail pricing, and excludes internal source-cost/profit fields. It has not been uploaded to Meta.
+- A read-only production Supabase audit on 2026-08-31 confirmed that Products 16–20 are not yet present in the database. Product 15 is draft with zero active variants and zero images, but still carries the obsolete unverified ₹588 source cost in production.
+- Production catalogue tables have RLS enabled and expose grants only to `postgres` and `service_role`; the public catalogue view uses `security_invoker=true`. Privileged commerce functions are executable only by `postgres` and `service_role`. Supabase Security Advisor reports zero errors and zero warnings.
 
 ## Rejected and quarantined work
 
@@ -26,18 +31,22 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 ## Current blockers
 
 - Product 15: exact Meesho source listing and all commercial fields are missing.
-- Products 16–20 are locally complete but still require staged Supabase synchronization, live deployment, and post-deployment URL/checkout verification before Meta feed inclusion.
+- Products 16–20 still require staged Supabase synchronization and proof that the deployed storefront is connected to the intended Supabase environment.
+- The staged synchronization now explicitly clears Product 15's obsolete source cost to zero. Applying it is a production database write and remains pending approval/execution.
 - Product 17 offers S–XXL with verified size-wise pricing; Product 18 offers S–XXL at ₹551. Their smaller source-listed sizes remain tracked but withheld because measurements are missing.
-- Local browser QA confirms Product 17 and 18 cart/checkout pricing and confirms PDP size controls, COD, free-delivery messaging, and add-to-bag access for Products 16, 19, and 20. Deployment and Supabase synchronization remain pending.
+- Local browser QA confirms Product 17 and 18 cart/checkout pricing and confirms PDP size controls, COD, free-delivery messaging, and add-to-bag access for Products 16, 19, and 20. Supabase synchronization remains pending.
 - Vercel is not currently proven to be connected to the intended Supabase environment.
+- The 2026-08-31 weekly catalogue gate passed with 20 tracked records and 19 sellable website products. It reported warnings—not hard failures—for the missing source backfill on Products 1–14 and the intentionally incomplete Product 15 draft.
+- Monitoring-date validation now detects invalid dates, future dates, and approved records older than the configurable daily freshness threshold.
 
 ## Safety decisions made
 
 - No guessed price, size, source URL, availability, seller, or return field was added to Product 15.
 - The previous unverified ₹588 cost and S–XL sizes for Product 15 were removed from active application pricing.
 - The Product 15 correction was applied and verified in the linked production Supabase project on 2026-08-30: the record is now **Maroon Rayon Co-ord Set**, `draft`, with zero active variants and zero product images.
-- Products 16–20 are integrated into the local website only. They remain absent from Supabase production and the Meta feed.
-- No commit, push, or deployment has been performed. The Products 16–20 staging migration remains unapplied pending final synchronization review.
+- The 2026-08-31 read-only audit found that the earlier production correction did not clear Product 15's obsolete source cost. The unapplied staging migration has been corrected to set it to zero.
+- Products 16–20 are live in the deployed static storefront but remain absent from Supabase production. Their validated feed rows exist locally and have not been uploaded to Meta.
+- The Products 16–20 staging migration remains unapplied pending explicit production synchronization approval; committing this reviewed migration does not apply it to Supabase or publish the Meta feed.
 
 ## Next actions
 
@@ -45,6 +54,6 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 2. Review and apply the approved Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 3. Backfill source records for Products 1–14 and downgrade any record that cannot be verified.
 4. Produce six individual source-faithful images only for approved products.
-5. Run `npm run meesho:validate`, lint, typecheck, tests, production build, and browser QA.
+5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.
 6. Apply the Supabase correction only after reviewing the migration against the linked project and current Supabase guidance.
 7. Commit and deploy only an approved, internally consistent batch.
