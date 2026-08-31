@@ -340,11 +340,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Six separate 4:5 images passed source-match and cross-view QA",
-      "websiteStatus": "Staged locally; deployment pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, category placement, cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Current listing and primary image confirm a white cotton kurta, pants and printed dupatta. Six separate crop-safe 4:5 images preserve the exact white/blue identity and passed cross-view QA. Retail prices are source cost plus ₹200. Storefront and Meta sync remain blocked until the five-product batch is complete."
+      "notesAndRisks": "Current listing and primary image confirm a white cotton kurta, pants and printed dupatta. Six separate crop-safe 4:5 images preserve the exact white/blue identity and passed cross-view QA. Retail prices are source cost plus ₹200. Production PDP, category placement, six-image gallery, cart and COD checkout passed live QA; Meta feed generation is ready but no upload has been performed."
     },
     {
       "sku": "MSH-EXP-022",
@@ -373,11 +373,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Six separate 4:5 images passed source-match and cross-view QA",
-      "websiteStatus": "Staged locally; deployment pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, category placement, size-M cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Current primary image confirms the cream printed tunic and light palazzo identity. Six separate crop-safe 4:5 images passed source-match and cross-view QA. XXS pricing remains tracked but XXS is withheld because the detailed size table starts at S. Keep storefront and Meta blocked until the approved batch is synchronized and release-gated."
+      "notesAndRisks": "Current primary image confirms the cream printed tunic and light palazzo identity. Six separate crop-safe 4:5 images passed source-match and cross-view QA. XXS pricing remains tracked but XXS is withheld because the detailed size table starts at S. Production size M was verified at ₹641 through PDP, cart and COD checkout with FREE delivery; Meta feed generation is ready but no upload has been performed."
     },
     {
       "sku": "MSH-EXP-023",
@@ -406,11 +406,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Six separate 4:5 images passed source-match and cross-view QA",
-      "websiteStatus": "Staged locally; deployment pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, category placement, cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Current listing and primary image confirm the white red-rose bodycon maxi identity. Six separate crop-safe 4:5 images passed source-match and cross-view QA without adding sleeves, a slit, or extra pieces. Retail prices are source cost plus ₹200. Keep storefront and Meta blocked until the approved batch is synchronized and release-gated."
+      "notesAndRisks": "Current listing and primary image confirm the white red-rose bodycon maxi identity. Six separate crop-safe 4:5 images passed source-match and cross-view QA without adding sleeves, a slit, or extra pieces. Retail prices are source cost plus ₹200. Production PDP, category placement, six-image gallery, cart and COD checkout passed live QA; Meta feed generation is ready but no upload has been performed."
     },
     {
       "sku": "MSH-EXP-024",
@@ -439,11 +439,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Six separate 4:5 images passed source-match and cross-view QA",
-      "websiteStatus": "Staged locally; deployment pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, category placement, cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Current primary image confirms the green-and-pink sleeveless tiered maxi. Six separate crop-safe 4:5 images passed source-match and cross-view QA after rejecting mismatched pale-green drafts. XXXL and 4XL prices remain tracked but withheld because the detailed measurement table ends at XXL. Keep storefront and Meta blocked until the approved batch is synchronized and release-gated."
+      "notesAndRisks": "Current primary image confirms the green-and-pink sleeveless tiered maxi. Six separate crop-safe 4:5 images passed source-match and cross-view QA after rejecting mismatched pale-green drafts. XXXL and 4XL prices remain tracked but withheld because the detailed measurement table ends at XXL. Production PDP, category placement, six-image gallery, cart and COD checkout passed live QA; Meta feed generation is ready but no upload has been performed."
     },
     {
       "sku": "MSH-EXP-025",
@@ -472,11 +472,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Six separate 4:5 images passed source-match and cross-view QA",
-      "websiteStatus": "Staged locally; deployment pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, category placement, cart and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Current listing and primary image confirm the solid black Anarkali and floral black dupatta. Six separate crop-safe 4:5 images passed source-match and cross-view QA while keeping the gown unembellished and the floral treatment confined to the dupatta. XS has a source-listed 42 in length while S–XXL list 48 in. Keep storefront and Meta blocked until synchronization and release gates pass."
+      "notesAndRisks": "Current listing and primary image confirm the solid black Anarkali and floral black dupatta. Six separate crop-safe 4:5 images passed source-match and cross-view QA while keeping the gown unembellished and the floral treatment confined to the dupatta. XS has a source-listed 42 in length while S–XXL list 48 in. Production PDP, category placement, six-image gallery, cart and COD checkout passed live QA; Meta feed generation is ready but no upload has been performed."
     }
   ]
 }

@@ -6,7 +6,7 @@ import test from "node:test";
 
 const execFileAsync = promisify(execFile);
 
-test("Meta dry-run admits live feed-ready variants and blocks pre-deployment products", async () => {
+test("Meta dry-run admits live feed-ready variants and blocks only unreleased products", async () => {
   const { stdout } = await execFileAsync(process.execPath, [
     "scripts/generate-meta-catalogue.mjs",
     "--base-url=https://dealstore-five.vercel.app",
@@ -15,7 +15,7 @@ test("Meta dry-run admits live feed-ready variants and blocks pre-deployment pro
     env: { ...process.env, MEESHO_VALIDATION_DATE: "2026-08-31" },
   });
   const report = JSON.parse(stdout);
-  assert.equal(report.eligibleRows, 37);
+  assert.equal(report.eligibleRows, 64);
   assert.deepEqual(report.blockedProducts, [
     {
       sku: "MSH-SET-004",
@@ -25,34 +25,14 @@ test("Meta dry-run admits live feed-ready variants and blocks pre-deployment pro
       sku: "MSH-WES-007",
       reasons: ["website URL is not marked live", "Meta status is not Ready"],
     },
-    {
-      sku: "MSH-EXP-021",
-      reasons: ["website URL is not marked live", "Meta status is not Ready"],
-    },
-    {
-      sku: "MSH-EXP-022",
-      reasons: ["website URL is not marked live", "Meta status is not Ready"],
-    },
-    {
-      sku: "MSH-EXP-023",
-      reasons: ["website URL is not marked live", "Meta status is not Ready"],
-    },
-    {
-      sku: "MSH-EXP-024",
-      reasons: ["website URL is not marked live", "Meta status is not Ready"],
-    },
-    {
-      sku: "MSH-EXP-025",
-      reasons: ["website URL is not marked live", "Meta status is not Ready"],
-    },
   ]);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {
   const csv = await readFile(new URL("../data/meta-catalogue.csv", import.meta.url), "utf8");
   const [header, ...rows] = csv.trim().split(/\r?\n/);
-  assert.equal(rows.length, 37);
-  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 37);
+  assert.equal(rows.length, 64);
+  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 64);
   assert.match(header, /item_group_id/);
   assert.doesNotMatch(header, /source.cost|profit/i);
   for (const row of rows) {

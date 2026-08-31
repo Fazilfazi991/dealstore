@@ -2,12 +2,12 @@
 
 Last audited: 2026-08-31
 Repository branch: `main`
-Audit commit: `16335ac85db9290b08efe750332ff03bbf730287`
+Audit commit: `f59492b47b3b97f77e19978e227ef1051689296b`
 
 ## What exists
 
 - A working Next.js/Vinext storefront with product listing, product detail, cart, COD checkout, Stripe checkout scaffolding, free-shipping logic, and Supabase commerce migrations.
-- Fourteen sellable original catalogue products plus five approved, source-verified replacements (Products 16–20) after the Product 15 safety correction. Products 1, 4, and 7 now have exact source backfills; the remaining eleven original sellable records require verification. Five additional source-verified Products 21–25 have all passed six-image QA and are approved internally. They are synchronized into the local storefront but remain undeployed and Meta-blocked pending release gates.
+- Fourteen sellable original catalogue products plus ten approved, source-verified additions (Products 16–25) after the Product 15 safety correction. Products 1, 4, and 7 now have exact source backfills; the remaining eleven original sellable records require verification. Products 21–25 are deployed, production-QA verified, and Meta-feed ready.
 - Six separate local image assets for MSH-EXP-011 through MSH-EXP-015. The old combined catalogue boards are no longer referenced.
 - A Supabase schema whose public catalogue exposes only products with `status='active'`.
 - Asset and commerce tests, plus the new `npm run meesho:validate` commercial-data gate.
@@ -21,9 +21,9 @@ Audit commit: `16335ac85db9290b08efe750332ff03bbf730287`
 - A focused 2026-08-31 Meesho search found several maroon rayon kurta/pant listings, but none matched the supplied garment across silhouette, wide-leg bottom, V-neck treatment, sleeve details, included pieces, and colour. No candidate was accepted or copied into the canonical record.
 - A complete provenance scan of both preserved source/handoff folders, both ZIP archives, and all three sheets in the handoff XLSX found no Meesho product URL or hidden source record. The handoff's Product 11/12 costs are labelled derived and are not accepted as verification; see `docs/source-provenance-audit.md`.
 - MSH-EXP-016 through MSH-EXP-020 have live source records, verified commercial data, six individual watermark-free images, passed local cross-view QA, and live production product pages.
-- MSH-EXP-021 through MSH-EXP-025 have current source URLs, size-wise source-plus-₹200 retail pricing, seller/rating/review/return evidence, visually inspected primary source images, and six crop-safe 4:5 images each. All five passed source-match/cross-view QA and are synchronized into the local storefront with 27 approved size variants. Product 22 XXS and Product 24 XXXL/4XL remain withheld for missing measurements. Deployment and Meta readiness remain blocked pending release validation and live QA.
+- MSH-EXP-021 through MSH-EXP-025 have current source URLs, size-wise source-plus-₹200 retail pricing, seller/rating/review/return evidence, visually inspected primary source images, and six crop-safe 4:5 images each. All five passed source-match/cross-view QA and are live with 27 approved size variants. Product 22 XXS and Product 24 XXXL/4XL remain withheld for missing measurements. Production QA verified homepage/category placement, every six-image PDP, Product 22 size-M pricing at ₹641, cart, FREE delivery, selected COD checkout, disabled online payment, and zero mobile overflow; no order was submitted.
 - On 2026-08-31, all five production product URLs and all thirty public image URLs returned HTTP 200 with the expected page titles, retail prices, and image content types.
-- The local Meta feed contains 28 unique size variants across Products 16–20. Every row uses HTTPS, free shipping, exact size-wise retail pricing, and excludes internal source-cost/profit fields. It has not been uploaded to Meta.
+- The local Meta feed contains 64 unique size variants across all live, feed-ready verified products, including Products 16–25. Every row uses HTTPS, free shipping, exact size-wise retail pricing, and excludes internal source-cost/profit fields. It has not been uploaded to Meta.
 - A read-only production Supabase audit on 2026-08-31 confirmed that Products 16–20 are not yet present in the database. Product 15 is draft with zero active variants and zero images, but still carries the obsolete unverified ₹588 source cost in production.
 - Production catalogue tables have RLS enabled and expose grants only to `postgres` and `service_role`; the public catalogue view uses `security_invoker=true`. Privileged commerce functions are executable only by `postgres` and `service_role`. Supabase Security Advisor reports zero errors and zero warnings.
 
@@ -41,7 +41,7 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 - Vercel is not currently proven to be connected to the intended Supabase environment.
 - The 2026-08-31 weekly catalogue gate passed with 25 tracked records and 19 sellable website products. It reported warnings—not hard failures—for the remaining unverified original records and the intentionally incomplete Product 15 draft.
 - Monitoring-date validation now detects invalid dates, future dates, and approved records older than the configurable daily freshness threshold.
-- Products 21–25 passed local browser QA at 320, 360, 375, 390, 430, 768, 1024, 1280, and 1440 widths with no broken images or framework overlays. The 360–375px header overflow was corrected, all six PDP assets are now rendered, category placement was verified, Product 22 size-M cart pricing remained ₹641, delivery remained FREE, and COD remained selected at checkout. No order was submitted.
+- Products 21–25 passed local browser QA at 320, 360, 375, 390, 430, 768, 1024, 1280, and 1440 widths and passed production QA on `dealstore-five.vercel.app`. The 360–375px header overflow remains corrected, all six PDP assets render without broken images, category placement is correct, Product 22 size-M cart pricing remains ₹641, delivery remains FREE, COD remains selected, and online payment remains disabled. No order was submitted. Vercel reported no runtime errors during the verification window.
 - Final local release gates after storefront synchronization: tracked-source ESLint 0 errors (2 ignored generated-file warnings), TypeScript pass, 22/22 tests pass, `meesho:validate` pass with 25 tracked/24 sellable and only known legacy/Product 15 warnings, Vinext production build pass, and `git diff --check` pass.
 
 ## Safety decisions made
@@ -56,7 +56,7 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 ## Next actions
 
 1. Find Product 15’s exact source listing and verify it against all six supplied images.
-2. Complete local build/browser QA for Products 21–25, then deploy and perform live product, cart, checkout, image, and category verification before marking Meta Ready.
+2. Keep Products 21–25 under daily source monitoring; their production and Meta-readiness gates are complete, but the feed has not been uploaded.
 3. Continue exact-source backfill for Products 2–3, 5–6, and 8–15; Products 1, 4, and 7 are verified.
 4. Review and apply the approved Product 1 and Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.
