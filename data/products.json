@@ -238,11 +238,11 @@
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
       "imageStatus": "Exact source match confirmed; six-image cross-view QA passed and info card corrected",
-      "websiteStatus": "Local PDP, size pricing, cart, free delivery and COD checkout verified 2026-08-31; production sync pending",
-      "metaFeedStatus": "Blocked",
+      "websiteStatus": "Live; production PDP, six public images, size-S pricing and cart, free delivery and COD checkout verified 2026-08-31",
+      "metaFeedStatus": "Ready",
       "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Direct source-image comparison matches the black-and-white floral print, slim straps, off-shoulder gathered neckline, short puff sleeves, fitted smocked waist and full-length flare. Current source prices are ₹289 for S/L/XL/XXL and ₹279 for M; retail is source plus ₹200 with free delivery. Local QA verified M at ₹479, S at ₹489, size-S cart total ₹489, free delivery and selected COD checkout. Production and Meta readiness remain blocked until the staged website/database changes pass live QA."
+      "notesAndRisks": "Direct source-image comparison matches the black-and-white floral print, slim straps, off-shoulder gathered neckline, short puff sleeves, fitted smocked waist and full-length flare. Current source prices are ₹289 for S/L/XL/XXL and ₹279 for M; retail is source plus ₹200 with free delivery. Production QA verified M at ₹479, S at ₹489, size-S cart price ₹489, free delivery, selected COD checkout and all six public images. The local Meta feed is ready but has not been uploaded."
     },
     {
       "sku": "MSH-EXP-016",

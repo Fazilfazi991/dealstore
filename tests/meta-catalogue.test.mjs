@@ -15,15 +15,15 @@ test("Meta dry-run admits live feed-ready variants and blocks only unreleased pr
     env: { ...process.env, MEESHO_VALIDATION_DATE: "2026-08-31" },
   });
   const report = JSON.parse(stdout);
-  assert.equal(report.eligibleRows, 88);
+  assert.equal(report.eligibleRows, 93);
   assert.deepEqual(report.blockedProducts, []);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {
   const csv = await readFile(new URL("../data/meta-catalogue.csv", import.meta.url), "utf8");
   const [header, ...rows] = csv.trim().split(/\r?\n/);
-  assert.equal(rows.length, 88);
-  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 88);
+  assert.equal(rows.length, 93);
+  assert.equal(new Set(rows.map(row => row.split(",", 1)[0])).size, 93);
   assert.match(header, /item_group_id/);
   assert.doesNotMatch(header, /source.cost|profit/i);
   for (const row of rows) {
