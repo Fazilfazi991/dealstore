@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Legacy handoff provenance audited
+
+- Inspected both preserved folders and ZIP archives plus the three-sheet Products 11–20 workbook. No Meesho product URL or hidden source record exists in those materials.
+- Classified the handoff's Product 11/12 costs as unverified derived values, exactly as labelled in the workbook, and retained Products 1–15 in verification status.
+- Recorded archive hashes, evidence hierarchy, and rejection rationale in `docs/source-provenance-audit.md` so historical concepts and contact sheets cannot be promoted as commercial proof.
+
 ## 2026-08-31 — Approved-record evidence gate hardened
 
 - Required every approved record to carry the complete commercial evidence contract: exact HTTPS Meesho URL, garment attributes, seller, rating/reviews, returns, stock, dated verification, free shipping, source status, and positive size-wise source-plus-₹200 pricing for every sellable size.
