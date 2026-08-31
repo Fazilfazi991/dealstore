@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 14 source search logged
+
+- Compared MSH-EXP-014's stored black Anarkali with restrained vertical bodice sequins and lightly dotted dupatta against three live Meesho candidates in Chrome.
+- Rejected candidates with full-skirt white floral embroidery; gold vine waist embroidery and square neck; and a heavily floral sequined dupatta with ornate sleeve cuffs.
+- Product 14 remains `Needs Verification`; its legacy commercial fields were not promoted.
+
 ## 2026-08-31 — Product 13 source search logged
 
 - Compared MSH-EXP-013's stored dark green/navy shirt-collar checked maxi dress with three Meesho candidates.
