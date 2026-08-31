@@ -34,3 +34,16 @@ The generator blocks invalid, future-dated, or stale source checks. Freshness de
 ## Monitoring
 
 The active Dealstore monitoring heartbeat checks live sources daily and performs the integrity audit each Monday. Changes belong in `data/price-history.csv` and `data/stock-history.csv`. Production writes, publishing, commits, and deployments require a separately approved batch.
+
+## Instagram stock-status policy
+
+An Instagram product post is a durable catalogue and discovery asset. A source product becoming out of stock, temporarily unavailable, price-changed, or source-removed must **not** cause its Instagram post to be deleted.
+
+- Keep the existing post live.
+- Edit the caption so the first line clearly says `OUT OF STOCK` or `TEMPORARILY UNAVAILABLE`.
+- Remove or revise purchase calls to action that imply immediate availability.
+- Preserve the product imagery, engagement, post URL, and history.
+- When stock returns, remove the availability warning and restore only currently verified price, size, and purchase details.
+- Record the underlying change in the stock history and catalogue status before changing the caption.
+
+Deletion is reserved for duplicate uploads, wrong-product imagery, policy/legal issues, exposed private information, or an explicit owner instruction. Image-crop corrections and replacement-post cleanup require exact post-by-post identification and separate owner confirmation; they must never be inferred from stock status.
