@@ -1,5 +1,5 @@
 sku,product_name,slug,category,approval_status,website_status,source_url,image_status,notes
-MSH-ETH-001,Ajrakh Black Cotton Straight Kurti,ajrakh-black-cotton-straight-kurti,Everyday Ethnic,Needs Verification,Legacy published,,Source-match QA pending,Source verification backfill required
+MSH-ETH-001,Ajrakh Black Cotton Straight Kurti,ajrakh-black-cotton-straight-kurti,Everyday Ethnic,Approved,Local update ready,https://www.meesho.com/women-cotton-printed-round-neck-straight-kurti-black-straight-kurta-for-women-kurti-for-women-single-kurti-for-women-kurta-for-jeans-women-kurta-kurta-under-299-kurti-daily-wear-kurta-ajrakh-print-kurti/p/89ulhd,Six-image QA passed,Exact source match confirmed; live deployment verification pending
 MSH-ETH-002,Teal Art-Silk Embroidered A-Line Kurta,teal-art-silk-embroidered-a-line-kurta,Festive Ethnic,Needs Verification,Legacy published,,Source-match QA pending,Source verification backfill required
 MSH-SET-003,Peach Printed Kurta Palazzo Set,peach-printed-kurta-palazzo-set,Everyday Sets,Needs Verification,Legacy published,,Source-match QA pending,Source verification backfill required
 MSH-SET-004,Purple Aliya-Cut Three-Piece Set,purple-aliya-cut-three-piece-set,Festive Sets,Needs Verification,Legacy published,,Source-match QA pending,Source verification backfill required

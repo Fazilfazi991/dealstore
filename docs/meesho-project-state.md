@@ -7,14 +7,15 @@ Audit commit: `17500c5e067560d16a205f513c6e99b7faa5d503`
 ## What exists
 
 - A working Next.js/Vinext storefront with product listing, product detail, cart, COD checkout, Stripe checkout scaffolding, free-shipping logic, and Supabase commerce migrations.
-- Fourteen sellable legacy catalogue products plus five locally approved, source-verified replacements (Products 16–20) after the Product 15 safety correction. All fourteen legacy records remain explicitly flagged for source-verification backfill.
+- Fourteen sellable legacy catalogue products plus five locally approved, source-verified replacements (Products 16–20) after the Product 15 safety correction. Product 1 is now source-verified; the remaining thirteen legacy records require verification backfill.
 - Six separate local image assets for MSH-EXP-011 through MSH-EXP-015. The old combined catalogue boards are no longer referenced.
 - A Supabase schema whose public catalogue exposes only products with `status='active'`.
 - Asset and commerce tests, plus the new `npm run meesho:validate` commercial-data gate.
 
 ## Verification status
 
-- Products 1–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Under the new policy they require verification backfill; this audit does not retroactively claim they are verified.
+- Product 1 now has an exact live Meesho source match, complete commercial evidence, corrected S–6XL size-wise pricing, and passed six-image QA. Its corrected storefront deployment still requires live verification before Meta readiness.
+- Products 2–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Under the new policy they require verification backfill; this audit does not retroactively claim they are verified.
 - MSH-EXP-015 is confirmed by the supplied imagery and owner instruction as **Maroon Rayon Co-ord Set** (maroon kurta and wide-leg pants), not an Anarkali gown.
 - MSH-EXP-015 has no verified source URL, size-wise source price, sizes, seller, stock, rating, returns, or availability. It is therefore a draft and is excluded from the storefront.
 - A focused 2026-08-31 Meesho search found several maroon rayon kurta/pant listings, but none matched the supplied garment across silhouette, wide-leg bottom, V-neck treatment, sleeve details, included pieces, and colour. No candidate was accepted or copied into the canonical record.
@@ -51,8 +52,10 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 
 ## Next actions
 
-1. Find Product 15’s exact source listing and verify it against all six supplied images.
-2. Review and apply the approved Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
+1. Deploy and live-verify Product 1's corrected S–6XL price variants, then mark its Meta rows ready.
+2. Find Product 15’s exact source listing and verify it against all six supplied images.
+3. Continue source-verification backfill for Products 2–14.
+4. Review and apply the approved Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 3. Backfill source records for Products 1–14 and downgrade any record that cannot be verified.
 4. Produce six individual source-faithful images only for approved products.
 5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.

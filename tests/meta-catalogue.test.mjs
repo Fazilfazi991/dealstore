@@ -6,7 +6,7 @@ import test from "node:test";
 
 const execFileAsync = promisify(execFile);
 
-test("Meta dry-run admits only the five live approved replacements", async () => {
+test("Meta dry-run admits only live feed-ready variants and reports deployment-blocked approvals", async () => {
   const { stdout } = await execFileAsync(process.execPath, [
     "scripts/generate-meta-catalogue.mjs",
     "--base-url=https://dealstore-five.vercel.app",
@@ -16,7 +16,10 @@ test("Meta dry-run admits only the five live approved replacements", async () =>
   });
   const report = JSON.parse(stdout);
   assert.equal(report.eligibleRows, 28);
-  assert.deepEqual(report.blockedProducts, []);
+  assert.deepEqual(report.blockedProducts, [{
+    sku: "MSH-ETH-001",
+    reasons: ["website URL is not marked live", "Meta status is not Ready"],
+  }]);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {

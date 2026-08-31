@@ -70,3 +70,11 @@ test("source research cannot accept a non-canonical or unapproved candidate", as
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("verified Product 1 migration uses exact variants and never invents inventory", async () => {
+  const migration = await readFile(new URL("../supabase/migrations/20260831121000_sync_verified_product_1.sql", import.meta.url), "utf8");
+  assert.match(migration, /\('S',269\),\('M',278\),\('L',287\),\('XL',302\)/);
+  assert.match(migration, /v\.source_cost\+200/);
+  assert.match(migration, /select v\.id,0,3/);
+  assert.doesNotMatch(migration, /\('XS',/);
+});

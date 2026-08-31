@@ -1,5 +1,13 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 1 source backfill verified
+
+- Matched MSH-ETH-001 to the live Meesho listing `/p/89ulhd` by direct source-image comparison. The black/red yoke, circular medallion, contrast trim, four tassels, motif repeat, three-quarter sleeves, and straight silhouette match the stored six-image set.
+- Captured the live seller, ratings/reviews, 7-day returns, availability, and size-wise source costs: S ₹269, M ₹278, L ₹287, and XL–6XL ₹302.
+- Removed unsupported XS and recalculated retail prices as source + ₹200: S ₹469, M ₹478, L ₹487, and XL–6XL ₹502. Shipping remains free.
+- Replaced the stale product-info card that claimed ₹494 and ₹50 shipping with a verified `From ₹469` / `FREE Delivery` card. All six images passed source-match and cross-view QA.
+- Promoted Product 1 to `Approved`; its Meta row remains blocked until the corrected storefront deployment is live-verified.
+
 ## 2026-08-31 — Product 15 source search expanded
 
 - Reconfirmed the stored Product 15 identity from its six-image set: a solid wine/maroon two-piece rayon set with an embellished V-neck, three-quarter sleeves, knee-length A-line kurta, and matching plain wide-leg pants; no dupatta.

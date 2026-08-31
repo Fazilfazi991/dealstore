@@ -1,4 +1,30 @@
 import "server-only";
 import { calculateSellingPrice } from "@/lib/commerce/pricing";
-export const sourceCostsBySku:Record<string,number>={"MSH-ETH-001":494,"MSH-ETH-002":409,"MSH-SET-003":475,"MSH-SET-004":616,"MSH-GWN-005":632,"MSH-GWN-006":490,"MSH-WES-007":667,"MSH-WES-008":479,"MSH-WES-009":558,"MSH-WES-010":637,"MSH-EXP-011":485,"MSH-EXP-012":588,"MSH-EXP-013":526,"MSH-EXP-014":679,"MSH-EXP-016-XS":480,"MSH-EXP-016-S":490,"MSH-EXP-016-M":490,"MSH-EXP-016-L":490,"MSH-EXP-016-XL":490,"MSH-EXP-016-XXL":490,"MSH-EXP-016-XXXL":490,"MSH-EXP-017-S":388,"MSH-EXP-017-M":368,"MSH-EXP-017-L":388,"MSH-EXP-017-XL":388,"MSH-EXP-017-XXL":388,"MSH-EXP-018-S":351,"MSH-EXP-018-M":351,"MSH-EXP-018-L":351,"MSH-EXP-018-XL":351,"MSH-EXP-018-XXL":351,"MSH-EXP-019-S":450,"MSH-EXP-019-M":450,"MSH-EXP-019-L":450,"MSH-EXP-019-XL":450,"MSH-EXP-019-XXL":450,"MSH-EXP-020-S":482,"MSH-EXP-020-M":482,"MSH-EXP-020-L":482,"MSH-EXP-020-XL":482,"MSH-EXP-020-XXL":482,"MSH-EXP-020-XXXL":482};
-export const sellingPriceFor=(sku:string)=>{const exact=sourceCostsBySku[sku];if(exact!==undefined)return calculateSellingPrice(exact);const base=Object.keys(sourceCostsBySku).find(candidate=>sku.startsWith(`${candidate}-`));if(!base)throw new Error("Invalid source cost");return calculateSellingPrice(sourceCostsBySku[base])};
+
+export const sourceCostsBySku: Record<string, number> = {
+  "MSH-ETH-001-S": 269, "MSH-ETH-001-M": 278, "MSH-ETH-001-L": 287,
+  "MSH-ETH-001-XL": 302, "MSH-ETH-001-XXL": 302, "MSH-ETH-001-XXXL": 302,
+  "MSH-ETH-001-4XL": 302, "MSH-ETH-001-5XL": 302, "MSH-ETH-001-6XL": 302,
+  "MSH-ETH-002": 409, "MSH-SET-003": 475, "MSH-SET-004": 616,
+  "MSH-GWN-005": 632, "MSH-GWN-006": 490, "MSH-WES-007": 667,
+  "MSH-WES-008": 479, "MSH-WES-009": 558, "MSH-WES-010": 637,
+  "MSH-EXP-011": 485, "MSH-EXP-012": 588, "MSH-EXP-013": 526, "MSH-EXP-014": 679,
+  "MSH-EXP-016-XS": 480, "MSH-EXP-016-S": 490, "MSH-EXP-016-M": 490,
+  "MSH-EXP-016-L": 490, "MSH-EXP-016-XL": 490, "MSH-EXP-016-XXL": 490, "MSH-EXP-016-XXXL": 490,
+  "MSH-EXP-017-S": 388, "MSH-EXP-017-M": 368, "MSH-EXP-017-L": 388,
+  "MSH-EXP-017-XL": 388, "MSH-EXP-017-XXL": 388,
+  "MSH-EXP-018-S": 351, "MSH-EXP-018-M": 351, "MSH-EXP-018-L": 351,
+  "MSH-EXP-018-XL": 351, "MSH-EXP-018-XXL": 351,
+  "MSH-EXP-019-S": 450, "MSH-EXP-019-M": 450, "MSH-EXP-019-L": 450,
+  "MSH-EXP-019-XL": 450, "MSH-EXP-019-XXL": 450,
+  "MSH-EXP-020-S": 482, "MSH-EXP-020-M": 482, "MSH-EXP-020-L": 482,
+  "MSH-EXP-020-XL": 482, "MSH-EXP-020-XXL": 482, "MSH-EXP-020-XXXL": 482,
+};
+
+export const sellingPriceFor = (sku: string) => {
+  const exact = sourceCostsBySku[sku];
+  if (exact !== undefined) return calculateSellingPrice(exact);
+  const base = Object.keys(sourceCostsBySku).find((candidate) => sku.startsWith(`${candidate}-`));
+  if (!base) throw new Error("Invalid source cost");
+  return calculateSellingPrice(sourceCostsBySku[base]);
+};

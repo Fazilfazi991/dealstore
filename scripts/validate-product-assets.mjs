@@ -13,6 +13,8 @@ const expectedNames = [
 const throughIndex = process.argv.indexOf("--through");
 const through = throughIndex === -1 ? 20 : Number(process.argv[throughIndex + 1]);
 const productSource = await readFile(join(process.cwd(), "lib", "products.ts"), "utf8");
+const catalogue = JSON.parse(await readFile(join(process.cwd(), "data", "products.json"), "utf8"));
+const trackedProducts = [...(catalogue.legacyRecords || []), ...catalogue.records].slice(0, through);
 const failures = [];
 const results = [];
 
@@ -21,13 +23,16 @@ function pngDimensions(buffer) {
   return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
 
-for (let position = 11; position <= through; position += 1) {
-  const sku = `MSH-EXP-${String(position).padStart(3, "0")}`;
+for (const [index, product] of trackedProducts.entries()) {
+  const position = index + 1;
+  const sku = product.sku;
   const folder = join(process.cwd(), "public", "images", sku);
   const result = { position, sku, images: 0, status: "PASS" };
 
-  if (!productSource.includes(`id:"${sku}"`)) failures.push(`${sku}: missing product record`);
-  if (!productSource.includes(`images:imageSet("${sku}")`)) failures.push(`${sku}: product record does not use the six-image set`);
+  const sellable = !product.websiteStatus.startsWith("Draft");
+  if (sellable && !productSource.includes(`id:"${sku}"`)) failures.push(`${sku}: missing sellable product record`);
+  if (sellable && !productSource.includes(`images:imageSet("${sku}")`)) failures.push(`${sku}: sellable product does not use the six-image set`);
+  if (!sellable && productSource.includes(`id:"${sku}"`)) failures.push(`${sku}: draft product must remain excluded from the storefront`);
 
   try {
     const files = (await readdir(folder)).filter((file) => file.toLowerCase().endsWith(".png")).sort();

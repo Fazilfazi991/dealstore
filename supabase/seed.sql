@@ -2,7 +2,7 @@ insert into public.categories(slug,name,sort_order) values ('kurtis','Kurtis',1)
 
 create temporary table seed_products(external_id text,slug text,name text,category_slug text,cost integer,description text,material text,colour text,sizes text[],featured boolean,new_arrival boolean,best_seller boolean);
 insert into seed_products values
-('MSH-ETH-001','ajrakh-black-cotton-straight-kurti','Ajrakh Black Cotton Straight Kurti','kurtis',494,'Ajrakh-inspired motifs with a comfortable straight silhouette for workdays and everyday outings.','Cotton Cambric','Black',array['XS','S','M','L','XL','XXL','3XL','4XL','5XL','6XL'],true,false,true),
+('MSH-ETH-001','ajrakh-black-cotton-straight-kurti','Ajrakh Black Cotton Straight Kurti','kurtis',269,'A black cotton straight kurti with red Ajrakh-inspired motifs, a medallion yoke and decorative tassels for office and everyday wear.','Cotton','Black with red ethnic motifs',array['S','M','L','XL','XXL','XXXL','4XL','5XL','6XL'],true,false,true),
 ('MSH-ETH-002','teal-art-silk-embroidered-a-line-kurta','Teal Art-Silk Embroidered A-Line Kurta','kurtis',409,'A jewel-toned A-line kurta with embroidered neckline detailing for festive moments.','Art Silk','Teal',array['XXS','XS','S','M','L','XL','XXL','3XL','4XL'],false,true,false),
 ('MSH-SET-003','peach-printed-kurta-palazzo-set','Peach Printed Kurta Palazzo Set','kurta-sets',475,'An easy rayon kurta-and-palazzo pairing with a soft peach print.','Rayon','Peach',array['XXS','XS','S','M','L','XL','XXL','3XL','4XL','5XL'],false,true,false),
 ('MSH-SET-004','purple-aliya-cut-three-piece-set','Purple Aliya-Cut Three-Piece Set','kurta-sets',616,'A flowing three-piece ensemble with coordinated pants and dupatta.','Rayon','Purple',array['XS','S','M','L','XL','XXL','3XL','4XL','5XL'],true,false,false),
@@ -26,6 +26,8 @@ update public.products set occasion=case external_id when 'MSH-ETH-001' then 'Da
 insert into public.product_variants(product_id,sku,size,colour)
 select p.id,p.external_id||'-'||size,size,s.colour from seed_products s join public.products p on p.external_id=s.external_id cross join unnest(s.sizes) size
 on conflict(sku) do update set active=true,size=excluded.size,colour=excluded.colour,updated_at=now();
+update public.product_variants v set price_override=case v.size when 'S' then 469 when 'M' then 478 when 'L' then 487 else 502 end
+from public.products p where v.product_id=p.id and p.external_id='MSH-ETH-001';
 insert into public.product_images(product_id,image_url,alt_text,position,is_primary)
 select p.id,'/images/'||p.external_id||'/0'||asset.position||'-'||asset.name||'.png',p.name||case asset.position when 1 then ' catalogue view' else ' view '||asset.position end,asset.position-1,asset.position=1
 from public.products p cross join (values(1,'catalogue-hero'),(2,'front-model'),(3,'occasion-lifestyle'),(4,'three-quarter-view'),(5,'fabric-detail'),(6,'product-info-card')) asset(position,name) where p.external_id like 'MSH-%'
