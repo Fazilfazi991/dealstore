@@ -1,5 +1,12 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 15 source search expanded
+
+- Reconfirmed the stored Product 15 identity from its six-image set: a solid wine/maroon two-piece rayon set with an embellished V-neck, three-quarter sleeves, knee-length A-line kurta, and matching plain wide-leg pants; no dupatta.
+- Inspected the two closest Meesho text matches in Chrome. Both live pages report out of stock and expose no current source imagery, size-wise pricing, or availability evidence, so neither can verify the canonical garment.
+- Rejected three further candidates whose printed hems, floral print, straight fit, purple colour, long sleeves, or pocket-pant construction conflict with the stored garment.
+- MSH-EXP-015 remains `Needs Verification`, draft, unpriced, and excluded from the website and Meta feed.
+
 ## 2026-08-31 — Product 14 source search logged
 
 - Compared MSH-EXP-014's stored black Anarkali with restrained vertical bodice sequins and lightly dotted dupatta against three live Meesho candidates in Chrome.
