@@ -1,0 +1,4 @@
+sku,checked_at,candidate_url,outcome,identity_evidence,rejection_reason,next_action
+MSH-EXP-011,2026-08-31T11:13:15+04:00,https://www.meesho.com/womens-blue-cotton-printed-straight-kurta-pant-set/p/h8050m,Rejected,Search result metadata only,Live page returns 410 Gone; no source image can be verified,Do not reuse; continue exact garment search
+MSH-EXP-011,2026-08-31T11:13:15+04:00,https://www.meesho.com/womens-printed-pure-cotton-kurta-pant-set/p/bexfi5,Rejected,Live listing inspected,Three-piece set includes aqua dupatta and white pants; stored garment is a two-piece sky-blue matching set,Do not attach to Product 11
+MSH-EXP-011,2026-08-31T11:13:15+04:00,https://www.meesho.com/womens-blue-printed-kurti-with-white-trouser-set-ethnic-cotton-kurta-pant-set-for-women-straight-kurti-set-daily-office-wear-kurta-set/p/eyr64i,Rejected,Search result and live metadata inspected,White trousers conflict with the stored matching sky-blue pants,Do not attach to Product 11

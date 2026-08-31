@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 11 source search logged
+
+- Compared the stored MSH-EXP-011 two-piece sky-blue matching kurta/pant imagery with live Meesho candidates. Rejected a removed page, a three-piece aqua/white set with dupatta, and a blue kurti with white trousers.
+- Added `data/source-research.csv` as a durable candidate/rejection trail and extended `meesho:validate` so an accepted candidate must be the approved canonical source.
+- Product 11 remains `Needs Verification`; its legacy ₹485 claim was not promoted.
+
 ## 2026-08-31 — Legacy handoff provenance audited
 
 - Inspected both preserved folders and ZIP archives plus the three-sheet Products 11–20 workbook. No Meesho product URL or hidden source record exists in those materials.

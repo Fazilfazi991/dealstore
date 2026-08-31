@@ -1,9 +1,9 @@
 import { readFile, access } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const productsFile = process.env.MEESHO_PRODUCTS_FILE
-  ? new URL(`file:///${process.env.MEESHO_PRODUCTS_FILE.replaceAll("\\", "/")}`)
+  ? pathToFileURL(process.env.MEESHO_PRODUCTS_FILE)
   : new URL("../data/products.json", import.meta.url);
 const data = JSON.parse(await readFile(productsFile, "utf8"));
 const trackedProducts = [...(data.legacyRecords || []), ...data.records];
@@ -26,6 +26,25 @@ function ageInDays(date) {
   return Number.isFinite(checked) && Number.isFinite(validating)
     ? Math.floor((validating - checked) / 86_400_000)
     : null;
+}
+
+function parseCsvLine(line) {
+  const fields = [];
+  let field = "";
+  let quoted = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const character = line[index];
+    if (character === '"' && quoted && line[index + 1] === '"') {
+      field += '"';
+      index += 1;
+    } else if (character === '"') quoted = !quoted;
+    else if (character === "," && !quoted) {
+      fields.push(field);
+      field = "";
+    } else field += character;
+  }
+  fields.push(field);
+  return fields;
 }
 
 for (const product of trackedProducts) {
@@ -70,6 +89,27 @@ for (const product of trackedProducts) {
   if (/board|collage|contact.sheet|composite/i.test(JSON.stringify(product))) errors.push(`${product.sku}: collage/contact-sheet reference detected`);
   if (product.websiteStatus.startsWith("Legacy published") && product.approvalStatus !== "Approved") warnings.push(`${product.sku}: legacy storefront record requires verification backfill`);
   else if (!product.websiteStatus.startsWith("Draft") && product.approvalStatus !== "Approved") errors.push(`${product.sku}: unapproved product cannot be published`);
+}
+
+const researchFile = process.env.MEESHO_RESEARCH_FILE
+  ? pathToFileURL(process.env.MEESHO_RESEARCH_FILE)
+  : new URL("../data/source-research.csv", import.meta.url);
+const researchText = await readFile(researchFile, "utf8");
+const researchLines = researchText.trim().split(/\r?\n/);
+const researchHeader = researchLines.shift();
+if (researchHeader !== "sku,checked_at,candidate_url,outcome,identity_evidence,rejection_reason,next_action") errors.push("Source research log has an invalid header");
+const allowedResearchOutcomes = new Set(["Rejected", "Needs review", "Accepted"]);
+for (const [index, line] of researchLines.entries()) {
+  const [sku, checkedAt, candidateUrl, outcome, identityEvidence, rejectionReason, nextAction, ...extra] = parseCsvLine(line);
+  const label = `Source research row ${index + 2}`;
+  const product = trackedProducts.find(candidate => candidate.sku === sku);
+  if (!product) errors.push(`${label}: unknown SKU ${sku}`);
+  if (!Number.isFinite(Date.parse(checkedAt))) errors.push(`${label}: invalid checked_at`);
+  if (candidateUrl && !/^https:\/\/(?:www\.)?meesho\.com\/.+\/p\/[a-z0-9]+\/?$/i.test(candidateUrl)) errors.push(`${label}: invalid candidate URL`);
+  if (!allowedResearchOutcomes.has(outcome)) errors.push(`${label}: invalid outcome ${outcome}`);
+  if (!identityEvidence || !nextAction || extra.length) errors.push(`${label}: incomplete or malformed evidence fields`);
+  if (outcome === "Rejected" && !rejectionReason) errors.push(`${label}: rejected candidate requires a reason`);
+  if (outcome === "Accepted" && (!product || product.meeshoSourceUrl !== candidateUrl || product.approvalStatus !== "Approved")) errors.push(`${label}: accepted candidate must match an approved canonical source`);
 }
 
 const websiteSource = await readFile(new URL("../lib/products.ts", import.meta.url), "utf8");
