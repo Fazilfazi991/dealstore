@@ -1,5 +1,11 @@
 # Catalogue changelog
 
+## 2026-08-31 — Product 12 source search logged
+
+- Compared MSH-EXP-012's stored floor-length maroon/rust botanical gown against the verified MSH-EXP-017 source and three additional Meesho candidates.
+- Rejected two removed listings; rejected the live polycotton Kalamkari candidate after Chrome source-image inspection showed a white-base short dress with leggings; rejected Product 17's source because its white line-art print is a different garment.
+- Product 12 remains `Needs Verification`; the handoff-derived ₹588 value was not promoted.
+
 ## 2026-08-31 — Product 11 source search logged
 
 - Compared the stored MSH-EXP-011 two-piece sky-blue matching kurta/pant imagery with live Meesho candidates. Rejected a removed page, a three-piece aqua/white set with dupatta, and a blue kurti with white trousers.
