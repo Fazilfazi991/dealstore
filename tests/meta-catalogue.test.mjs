@@ -16,7 +16,10 @@ test("Meta dry-run admits live feed-ready variants and blocks only unreleased pr
   });
   const report = JSON.parse(stdout);
   assert.equal(report.eligibleRows, 98);
-  assert.deepEqual(report.blockedProducts, []);
+  assert.deepEqual(report.blockedProducts, [{
+    sku: "MSH-EXP-026",
+    reasons: ["website URL is not marked live", "Meta status is not Ready"],
+  }]);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {

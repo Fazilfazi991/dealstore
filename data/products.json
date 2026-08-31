@@ -638,12 +638,12 @@
       "returnEligibility": "7-day returns",
       "sourceVerificationDate": "2026-08-31",
       "lastCheckedDate": "2026-08-31",
-      "imageStatus": "Source identity verified; six clean individual images pending",
-      "websiteStatus": "Draft; excluded from storefront",
+      "imageStatus": "Six separate watermark-free 4:5 images passed source-match and cross-view QA",
+      "websiteStatus": "Staged; local QA pending",
       "metaFeedStatus": "Blocked",
-      "approvalStatus": "Needs Verification",
+      "approvalStatus": "Approved",
       "sourceDataStatus": "Verified",
-      "notesAndRisks": "Live source verified at ₹416 for the active selector group. Only S and M are retained because they have source-published measurements; L–XXXL remain withheld until measurements are verified. Source photos confirm the black-and-beige diamond-print kurta, button placket and matching pants, but contain a supplier watermark and must not be published. Approval requires six separate watermark-free images that preserve the exact garment identity and pass source-match QA."
+      "notesAndRisks": "Live source verified at ₹416 for the active selector group. Only S and M are retained because they have source-published measurements; L–XXXL remain withheld until measurements are verified. Source photos confirm the black-and-beige diamond-print kurta, button placket and matching pants, but contain a supplier watermark and were not published. Six separate watermark-free 4:5 images preserve the garment identity and passed cross-view QA. Local and production commerce QA remain required before Live or Meta Ready status."
     }
   ]
 }
