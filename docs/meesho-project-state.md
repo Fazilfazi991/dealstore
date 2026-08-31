@@ -2,25 +2,26 @@
 
 Last audited: 2026-08-31
 Repository branch: `main`
-Audit commit: `17500c5e067560d16a205f513c6e99b7faa5d503`
+Audit commit: `16335ac85db9290b08efe750332ff03bbf730287`
 
 ## What exists
 
 - A working Next.js/Vinext storefront with product listing, product detail, cart, COD checkout, Stripe checkout scaffolding, free-shipping logic, and Supabase commerce migrations.
-- Fourteen sellable legacy catalogue products plus five locally approved, source-verified replacements (Products 16–20) after the Product 15 safety correction. Product 1 is now source-verified; the remaining thirteen legacy records require verification backfill.
+- Fourteen sellable original catalogue products plus five approved, source-verified replacements (Products 16–20) after the Product 15 safety correction. Products 1, 4, and 7 now have exact source backfills; the remaining eleven original sellable records require verification. Five additional source-verified Products 21–25 have all passed six-image QA and are approved internally. They are synchronized into the local storefront but remain undeployed and Meta-blocked pending release gates.
 - Six separate local image assets for MSH-EXP-011 through MSH-EXP-015. The old combined catalogue boards are no longer referenced.
 - A Supabase schema whose public catalogue exposes only products with `status='active'`.
 - Asset and commerce tests, plus the new `npm run meesho:validate` commercial-data gate.
 
 ## Verification status
 
-- Product 1 now has an exact live Meesho source match, complete commercial evidence, corrected S–6XL size-wise pricing, passed six-image QA, and a live-verified product/cart/COD checkout flow. Its nine size variants are Meta-ready.
-- Products 2–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Under the new policy they require verification backfill; this audit does not retroactively claim they are verified.
+- Products 1, 4, and 7 now have exact live Meesho source matches and complete commercial evidence. Product 1's corrected S–6XL flow is live and Meta-ready. Products 4 and 7 have corrected pricing, information cards, product pages, size-selected carts, and COD checkout locally verified; deployment and production QA remain pending.
+- Products 2–3, 5–6, and 8–14 exist in the storefront, but their original Meesho URLs and dated source evidence are not present in this repository. Candidate searches through Product 14 are preserved in `data/source-research.csv`; rejected candidates were not promoted. Under the new policy these records still require exact-source backfill.
 - MSH-EXP-015 is confirmed by the supplied imagery and owner instruction as **Maroon Rayon Co-ord Set** (maroon kurta and wide-leg pants), not an Anarkali gown.
 - MSH-EXP-015 has no verified source URL, size-wise source price, sizes, seller, stock, rating, returns, or availability. It is therefore a draft and is excluded from the storefront.
 - A focused 2026-08-31 Meesho search found several maroon rayon kurta/pant listings, but none matched the supplied garment across silhouette, wide-leg bottom, V-neck treatment, sleeve details, included pieces, and colour. No candidate was accepted or copied into the canonical record.
 - A complete provenance scan of both preserved source/handoff folders, both ZIP archives, and all three sheets in the handoff XLSX found no Meesho product URL or hidden source record. The handoff's Product 11/12 costs are labelled derived and are not accepted as verification; see `docs/source-provenance-audit.md`.
 - MSH-EXP-016 through MSH-EXP-020 have live source records, verified commercial data, six individual watermark-free images, passed local cross-view QA, and live production product pages.
+- MSH-EXP-021 through MSH-EXP-025 have current source URLs, size-wise source-plus-₹200 retail pricing, seller/rating/review/return evidence, visually inspected primary source images, and six crop-safe 4:5 images each. All five passed source-match/cross-view QA and are synchronized into the local storefront with 27 approved size variants. Product 22 XXS and Product 24 XXXL/4XL remain withheld for missing measurements. Deployment and Meta readiness remain blocked pending release validation and live QA.
 - On 2026-08-31, all five production product URLs and all thirty public image URLs returned HTTP 200 with the expected page titles, retail prices, and image content types.
 - The local Meta feed contains 28 unique size variants across Products 16–20. Every row uses HTTPS, free shipping, exact size-wise retail pricing, and excludes internal source-cost/profit fields. It has not been uploaded to Meta.
 - A read-only production Supabase audit on 2026-08-31 confirmed that Products 16–20 are not yet present in the database. Product 15 is draft with zero active variants and zero images, but still carries the obsolete unverified ₹588 source cost in production.
@@ -38,8 +39,10 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 - Product 17 offers S–XXL with verified size-wise pricing; Product 18 offers S–XXL at ₹551. Their smaller source-listed sizes remain tracked but withheld because measurements are missing.
 - Local browser QA confirms Product 17 and 18 cart/checkout pricing and confirms PDP size controls, COD, free-delivery messaging, and add-to-bag access for Products 16, 19, and 20. Supabase synchronization remains pending.
 - Vercel is not currently proven to be connected to the intended Supabase environment.
-- The 2026-08-31 weekly catalogue gate passed with 20 tracked records and 19 sellable website products. It reported warnings—not hard failures—for the missing source backfill on Products 1–14 and the intentionally incomplete Product 15 draft.
+- The 2026-08-31 weekly catalogue gate passed with 25 tracked records and 19 sellable website products. It reported warnings—not hard failures—for the remaining unverified original records and the intentionally incomplete Product 15 draft.
 - Monitoring-date validation now detects invalid dates, future dates, and approved records older than the configurable daily freshness threshold.
+- Products 21–25 passed local browser QA at 320, 360, 375, 390, 430, 768, 1024, 1280, and 1440 widths with no broken images or framework overlays. The 360–375px header overflow was corrected, all six PDP assets are now rendered, category placement was verified, Product 22 size-M cart pricing remained ₹641, delivery remained FREE, and COD remained selected at checkout. No order was submitted.
+- Final local release gates after storefront synchronization: tracked-source ESLint 0 errors (2 ignored generated-file warnings), TypeScript pass, 22/22 tests pass, `meesho:validate` pass with 25 tracked/24 sellable and only known legacy/Product 15 warnings, Vinext production build pass, and `git diff --check` pass.
 
 ## Safety decisions made
 
@@ -53,10 +56,9 @@ The previous Products 16–20 visual concepts—Emerald Green Embroidered Kurta-
 ## Next actions
 
 1. Find Product 15’s exact source listing and verify it against all six supplied images.
-2. Continue source-verification backfill for Products 2–14.
-3. Review and apply the approved Product 1 and Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
-3. Backfill source records for Products 1–14 and downgrade any record that cannot be verified.
-4. Produce six individual source-faithful images only for approved products.
+2. Complete local build/browser QA for Products 21–25, then deploy and perform live product, cart, checkout, image, and category verification before marking Meta Ready.
+3. Continue exact-source backfill for Products 2–3, 5–6, and 8–15; Products 1, 4, and 7 are verified.
+4. Review and apply the approved Product 1 and Products 16–20 Supabase catalogue synchronization without exposing source costs publicly.
 5. Keep `meesho:validate`, Meta-feed tests, lint, typecheck, tests, production build, and browser QA green.
 6. Apply the Supabase correction only after reviewing the migration against the linked project and current Supabase guidance.
 7. Commit and deploy only an approved, internally consistent batch.

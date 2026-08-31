@@ -6,7 +6,7 @@ import test from "node:test";
 
 const execFileAsync = promisify(execFile);
 
-test("Meta dry-run admits all live feed-ready variants", async () => {
+test("Meta dry-run admits live feed-ready variants and blocks pre-deployment products", async () => {
   const { stdout } = await execFileAsync(process.execPath, [
     "scripts/generate-meta-catalogue.mjs",
     "--base-url=https://dealstore-five.vercel.app",
@@ -16,7 +16,36 @@ test("Meta dry-run admits all live feed-ready variants", async () => {
   });
   const report = JSON.parse(stdout);
   assert.equal(report.eligibleRows, 37);
-  assert.deepEqual(report.blockedProducts, []);
+  assert.deepEqual(report.blockedProducts, [
+    {
+      sku: "MSH-SET-004",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-WES-007",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-EXP-021",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-EXP-022",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-EXP-023",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-EXP-024",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+    {
+      sku: "MSH-EXP-025",
+      reasons: ["website URL is not marked live", "Meta status is not Ready"],
+    },
+  ]);
 });
 
 test("generated Meta feed has unique variants, free shipping, and no internal costs", async () => {

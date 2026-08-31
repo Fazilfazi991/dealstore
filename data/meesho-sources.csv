@@ -2,10 +2,10 @@ sku,source_url,verification_date,last_checked,status,required_action
 MSH-ETH-001,https://www.meesho.com/women-cotton-printed-round-neck-straight-kurti-black-straight-kurta-for-women-kurti-for-women-single-kurti-for-women-kurta-for-jeans-women-kurta-kurta-under-299-kurti-daily-wear-kurta-ajrakh-print-kurti/p/89ulhd,2026-08-31,2026-08-31,Active,Monitor daily; live size-wise pricing verified
 MSH-ETH-002,,,,Needs review,Find and verify exact source listing
 MSH-SET-003,,,,Needs review,Find and verify exact source listing
-MSH-SET-004,,,,Needs review,Find and verify exact source listing
+MSH-SET-004,https://www.meesho.com/women-printed-rayon-aliya-cut-kurtipant-and-dupatta-set/p/7iks6o,2026-08-31,2026-08-31,Active,Monitor daily; deploy and live-verify corrected size-wise pricing
 MSH-GWN-005,,,,Needs review,Find and verify exact source listing
 MSH-GWN-006,,,,Needs review,Find and verify exact source listing
-MSH-WES-007,,,,Needs review,Find and verify exact source listing
+MSH-WES-007,https://www.meesho.com/seek-by-sheetal-pink-floral-georgette-maxi-dress-with-puff-sleeves-and-tiered-ruffles/p/9stnpu,2026-08-31,2026-08-31,Active,Monitor daily; complete local browser QA then deploy and live-verify
 MSH-WES-008,,,,Needs review,Find and verify exact source listing
 MSH-WES-009,,,,Needs review,Find and verify exact source listing
 MSH-WES-010,,,,Needs review,Find and verify exact source listing
@@ -19,3 +19,8 @@ MSH-EXP-017,https://www.meesho.com/fancy-printed-round-neck-maxi-gown-with-dupat
 MSH-EXP-018,https://www.meesho.com/womens-trendy-printed-cotton-blend-straight-co-ord-set-pista/p/88i66i,2026-08-30,2026-08-31,Active,Monitor daily; keep XXS withheld until measurements exist
 MSH-EXP-019,https://www.meesho.com/red-cotton-kurti-set-for-women-sleeveless-kurta-pant-set-party-wear-kurta-set-for-women-kurti-set-under-500-2-piece-kurti-set-kurta-palazzo-set-stylish-kurti-set-for-women-cotton-ethnic-dress-for-women/p/f3bvtr,2026-08-30,2026-08-31,Active,Monitor daily; production page and public images verified
 MSH-EXP-020,https://www.meesho.com/georgette-sttiched-anarkali-gown-and-dupatta-white/p/8jonju,2026-08-30,2026-08-31,Active,Monitor daily; review count increased to 1195
+MSH-EXP-021,https://www.meesho.com/womens-printed-pure-cotton-kurta-pant-set/p/g9023b,2026-08-31,2026-08-31,Active,Monitor daily; storefront and Meta sync wait for batch completion
+MSH-EXP-022,https://www.meesho.com/co-ord-set-for-women/p/angdgj,2026-08-31,2026-08-31,Active,Keep XXS withheld; monitor daily and release only after batch gates pass
+MSH-EXP-023,https://www.meesho.com/womens-elegant-floral-print-bodycon-maxi-dress-stretchable-sleeveless-western-long-dress-for-parties-special-occasions/p/af2ejj,2026-08-31,2026-08-31,Active,Monitor daily and release only after batch gates pass
+MSH-EXP-024,https://www.meesho.com/women-floral-print-maxi-gown-dress/p/9y5qfp,2026-08-31,2026-08-31,Active,Keep XXXL and 4XL withheld; monitor daily and release only after batch gates pass
+MSH-EXP-025,https://www.meesho.com/women-black-anarkali-gown-set-with-floral-printed-dupatta-long-flared-georgette-gown-ethnic-party-festive-wear-for-women/p/bzrjgi,2026-08-31,2026-08-31,Active,Monitor daily and release only after storefront and Meta gates pass
